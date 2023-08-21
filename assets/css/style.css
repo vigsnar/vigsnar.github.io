@@ -24,7 +24,7 @@ p span{
 }
 
 a {
-  color: red;
+  color: maroon;
   text-decoration: none;
 }
 
@@ -40,7 +40,7 @@ h4,
 h5,
 h6 {
   font-family: "Roboto", sans-serif;
-  color: red;
+  color: maroon;
   text-decoration: underline;
 }
 
@@ -75,7 +75,7 @@ img{
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid red;
+  border: 6px solid maroon;
   border-top-color: #e2eefd;
   border-radius: 50%;
   width: 60px;
@@ -114,7 +114,7 @@ img{
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: red;
+  background: maroon;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -150,7 +150,7 @@ img{
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: red;
+  background: maroon;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -254,7 +254,7 @@ img{
 }
 
 #header .logo a span {
-  color: red;
+  color: maroon;
 }
 
 #header .logo img {
@@ -314,7 +314,7 @@ ul{
   border: 1px solid black;
   margin: 5% auto;
   width: 80%;
-  color: red;
+  color: maroon;
 }
 
 .navbar a i,
@@ -331,7 +331,7 @@ ul{
   height: 2px;
   bottom: -6px;
   left: 0;
-  background-color: red;
+  background-color: maroon;
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -348,7 +348,7 @@ ul{
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: red;
+  color: maroon;
 }
 
 .navbar .dropdown ul {
@@ -382,7 +382,7 @@ ul{
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: red;
+  color: maroon;
 }
 
 .navbar .dropdown:hover>ul {
@@ -491,7 +491,7 @@ ul{
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: red;
+  color: maroon;
 }
 
 .navbar-mobile .getstarted,
@@ -526,7 +526,7 @@ ul{
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: red;
+  color: maroon;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -568,7 +568,7 @@ ul{
 }
 
 #hero h1 span {
-  color: red;
+  color: maroon;
 }
 
 #hero h2 {
@@ -589,7 +589,7 @@ ul{
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
-  background: red;
+  background: maroon;
 }
 
 #hero .btn-get-started:hover {
@@ -607,7 +607,7 @@ ul{
 }
 
 #hero .btn-watch-video i {
-  color: red;
+  color: maroon;
   font-size: 32px;
   transition: 0.3s;
   line-height: 0;
@@ -615,7 +615,7 @@ ul{
 }
 
 #hero .btn-watch-video:hover {
-  color: red;
+  color: maroon;
 }
 
 #hero .btn-watch-video:hover i {
@@ -680,7 +680,7 @@ section {
   padding: 8px 20px;
   margin: 0;
   background: #e7f1fd;
-  color: red;
+  color: maroon;
   display: inline-block;
   text-transform: uppercase;
   border-radius: 50px;
@@ -693,7 +693,7 @@ section {
 }
 
 .section-title h3 span {
-  color: red;
+  color: maroon;
 }
 
 .section-title p {
@@ -763,9 +763,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Featured Services
+# Featumaroon Services
 --------------------------------------------------------------*/
-.featured-services .icon-box {
+.featumaroon-services .icon-box {
   padding: 30px;
   position: relative;
   overflow: hidden;
@@ -776,7 +776,7 @@ section {
   z-index: 1;
 }
 
-.featured-services .icon-box::before {
+.featumaroon-services .icon-box::before {
   content: "";
   position: absolute;
   background: #cbe0fb;
@@ -788,45 +788,45 @@ section {
   z-index: -1;
 }
 
-.featured-services .icon-box:hover::before {
-  background: red;
+.featumaroon-services .icon-box:hover::before {
+  background: maroon;
   top: 0;
   border-radius: 0px;
 }
 
-.featured-services .icon {
+.featumaroon-services .icon {
   margin-bottom: 15px;
 }
 
-.featured-services .icon i {
+.featumaroon-services .icon i {
   font-size: 48px;
   line-height: 1;
-  color: red;
+  color: maroon;
   transition: all 0.3s ease-in-out;
 }
 
-.featured-services .title {
+.featumaroon-services .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-.featured-services .title a {
+.featumaroon-services .title a {
   color: #111;
 }
 
-.featured-services .description {
+.featumaroon-services .description {
   font-size: 15px;
   line-height: 28px;
   margin-bottom: 0;
 }
 
-.featured-services .icon-box:hover .title a,
-.featured-services .icon-box:hover .description {
+.featumaroon-services .icon-box:hover .title a,
+.featumaroon-services .icon-box:hover .description {
   color: #fff;
 }
 
-.featured-services .icon-box:hover .icon i {
+.featumaroon-services .icon-box:hover .icon i {
   color: #fff;
 }
 
@@ -859,7 +859,7 @@ section {
   font-size: 24px;
   padding: 20px;
   margin-right: 15px;
-  color: red;
+  color: maroon;
   border-radius: 50px;
 }
 
@@ -910,7 +910,7 @@ section {
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: red;
+  background-color: maroon;
 }
 
 /*--------------------------------------------------------------
@@ -934,7 +934,7 @@ section {
   left: 50%;
   transform: translateX(-50%);
   font-size: 24px;
-  background: red;
+  background: maroon;
   color: #fff;
   width: 56px;
   height: 56px;
@@ -1040,11 +1040,11 @@ section {
 
 .services .icon-box:hover h4 a,
 .services .icon-box:hover .icon i {
-  color: red;
+  color: maroon;
 }
 
 .services .icon-box:hover .icon {
-  border-color: red;
+  border-color: maroon;
 }
 
 /*--------------------------------------------------------------
@@ -1140,7 +1140,7 @@ section {
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: red;
+  background-color: maroon;
 }
 
 @media (min-width: 992px) {
@@ -1176,7 +1176,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: red;
+  color: maroon;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -1223,7 +1223,7 @@ section {
 
 .portfolio .portfolio-item .portfolio-info .preview-link:hover,
 .portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: red;
+  color: maroon;
 }
 
 .portfolio .portfolio-item .portfolio-info .details-link {
@@ -1278,11 +1278,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid red;
+  border: 1px solid maroon;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: red;
+  background-color: maroon;
 }
 
 .portfolio-details .portfolio-info {
@@ -1429,7 +1429,7 @@ section {
 
 .pricing .box h4 {
   font-size: 36px;
-  color: red;
+  color: maroon;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   margin-bottom: 20px;
@@ -1461,7 +1461,7 @@ section {
 }
 
 .pricing .box ul i {
-  color: red;
+  color: maroon;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -1479,7 +1479,7 @@ section {
 }
 
 .pricing .btn-buy {
-  background: red;
+  background: maroon;
   display: inline-block;
   padding: 8px 35px 10px 35px;
   border-radius: 4px;
@@ -1496,9 +1496,9 @@ section {
   background: #3b8af2;
 }
 
-.pricing .featured h3 {
+.pricing .featumaroon h3 {
   color: #fff;
-  background: red;
+  background: maroon;
 }
 
 .pricing .advanced {
@@ -1510,7 +1510,7 @@ section {
   z-index: 1;
   font-size: 14px;
   padding: 1px 0 3px 0;
-  background: red;
+  background: maroon;
   color: #fff;
 }
 
@@ -1535,7 +1535,7 @@ section {
 .faq .faq-list .question {
   display: block;
   position: relative;
-  font-family: red;
+  font-family: maroon;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -1566,7 +1566,7 @@ section {
 }
 
 .faq .faq-list .collapsed:hover {
-  color: red;
+  color: maroon;
 }
 
 .faq .faq-list .collapsed .icon-show {
@@ -1591,7 +1591,7 @@ section {
 
 .contact .info-box i {
   font-size: 32px;
-  color: red;
+  color: maroon;
   border-radius: 50%;
   padding: 8px;
   border: 2px dotted #b3d1fa;
@@ -1671,7 +1671,7 @@ section {
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-  border-color: red;
+  border-color: maroon;
 }
 
 .contact .php-email-form input {
@@ -1683,7 +1683,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: red;
+  background: maroon;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1782,7 +1782,7 @@ ol> li{
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: red;
+  background: maroon;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
@@ -1811,7 +1811,7 @@ ol> li{
 }
 
 #footer .footer-top .footer-contact h3 span {
-  color: red;
+  color: maroon;
 }
 
 #footer .footer-top .footer-contact p {
@@ -1842,7 +1842,7 @@ ol> li{
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: red;
+  color: maroon;
   font-size: 18px;
   line-height: 1;
 }
@@ -1866,13 +1866,13 @@ ol> li{
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: red;
+  color: maroon;
 }
 
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: red;
+  background: maroon;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1895,7 +1895,7 @@ ol> li{
   float: left;
 }
 
-#footer .credits {
+#footer .cmaroonits {
   float: right;
   text-align: center;
   font-size: 13px;
@@ -1905,7 +1905,7 @@ ol> li{
 @media (max-width: 768px) {
 
   #footer .copyright,
-  #footer .credits {
+  #footer .cmaroonits {
     float: none;
     text-align: center;
     padding: 2px 0;
