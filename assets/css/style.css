@@ -41,7 +41,7 @@ h5,
 h6 {
   font-family: "Roboto", sans-serif;
   color: maroon;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #footer{
