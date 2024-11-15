@@ -206,6 +206,7 @@ img{
   gap: 2vw;                    /* Adds a gap of 2% of the viewport width between columns */
   margin: 0 auto;              /* Centers the container horizontally */
   width: 90%;                  /* Sets the container's width to 90% of its parent element */
+  min-height: 500px;
   height: 100%;                /* Make sure parent container has a defined height */
 }
 
