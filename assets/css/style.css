@@ -241,7 +241,19 @@ img{
   object-fit: cover; 
 }
 
+.image-container {
+  height: 200px; /* Set a fixed height for all images */
+  width: 100%;   /* Ensure the container takes full width */
+  overflow: hidden; /* Hide overflowed parts of the image */
+  position: relative;
+}
 
+.image-container img {
+  width: 100%;      /* Stretch image to full width of container */
+  height: 100%;     /* Stretch image to full height of container */
+  object-fit: cover; /* Ensure image covers the container without stretching */
+  display: block;   /* Prevent unwanted margin/padding */
+}
 
 
 #topbar .contact-info i {
