@@ -188,6 +188,7 @@ img{
 
 .h100{
   height: 100%;
+  object-fit: cover; 
 }
 
 
@@ -227,6 +228,7 @@ img{
 /* 80% height utility class */
 .h80 {
   height: 80%;                 /* Ensures elements with .h80 take up the full height of their parent */
+  object-fit: cover; 
 }
 
 
