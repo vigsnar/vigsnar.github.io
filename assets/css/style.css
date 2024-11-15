@@ -195,7 +195,7 @@ img{
   display: flex;        /* Enables flexbox layout */
   gap: 2vw;             /* Adds a gap of 2% of the viewport width between columns */
   margin: 0 auto;       /* Centers the container horizontally */
-  width: 80%;           /* Sets the container's width to 80% of its parent element */
+  width: 90%;           /* Sets the container's width to 80% of its parent element */
 }
 
 .threeColumn div {
@@ -212,6 +212,10 @@ img{
   .threeColumn {
     flex-direction: column;  /* Switches the layout to a vertical stack on smaller screens */
   }
+}
+
+.threeColumn {
+  height: 100vh;  /* Full viewport height, if desired */
 }
 
 .h80 {
