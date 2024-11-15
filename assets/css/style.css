@@ -191,6 +191,36 @@ img{
 }
 
 
+.threeColumn {
+  display: flex;        /* Enables flexbox layout */
+  gap: 2vw;             /* Adds a gap of 2% of the viewport width between columns */
+  margin: 0 auto;       /* Centers the container horizontally */
+  width: 80%;           /* Sets the container's width to 80% of its parent element */
+}
+
+.threeColumn div {
+  flex: 1;              /* Each div inside .threeColumn will take up equal space */
+}
+
+@media (min-width: 2000px) {
+  .threeColumn {
+    width: 60%;          /* On screens 2000px or wider, the container takes up 60% of the width */
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .threeColumn {
+    flex-direction: column;  /* Switches the layout to a vertical stack on smaller screens */
+  }
+}
+
+.h80 {
+  height: 80%;          /* Ensures elements with .h100 take up the full height of their parent */
+}
+
+
+
+
 #topbar .contact-info i {
   font-style: normal;
   color: #fff;
