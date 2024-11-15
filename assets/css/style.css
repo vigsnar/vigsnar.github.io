@@ -242,7 +242,7 @@ img{
 }
 
 .image-container {
-  height: 400px; /* Set a fixed height for all images */
+  height: 500px; /* Set a fixed height for all images */
   width: 100%;   /* Ensure the container takes full width */
   overflow: hidden; /* Hide overflowed parts of the image */
   position: relative;
