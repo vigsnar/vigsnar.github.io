@@ -186,11 +186,19 @@ img{
   }
  }
 
-.h100{
-  height: 100%;
-  object-fit: cover; 
+
+.h100 {
+  height: 100%; /* Adjust this value to set the desired height */
+  width: 100%;
+  overflow: hidden; /* Ensure images don't overflow the container */
 }
 
+.h100 img {
+  width: 100%;      /* Make sure image takes full width */
+  height: 100%;     /* Make sure image takes full height */
+  object-fit: cover; /* Ensure image fills space without distortion */
+  display: block;   /* Treats the image as a block element to prevent spacing issues */
+}
 
 /* General three-column layout */
 .threeColumn {
@@ -203,6 +211,8 @@ img{
 
 /* Each div inside .threeColumn will take up equal space */
 .threeColumn div {
+  text-align: center;
+  flex: 1; /* Makes each div take up equal space */
   flex-grow: 1;                /* Ensures each div takes equal space */
   flex-shrink: 1;              /* Allows div to shrink if necessary */
   flex-basis: 0;               /* Starts each column with 0 width to equally share space */
