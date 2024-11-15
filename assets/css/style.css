@@ -204,8 +204,8 @@ img{
 .threeColumn {
   display: flex;               /* Enables flexbox layout */
   gap: 2vw;                    /* Adds a gap of 2% of the viewport width between columns */
-  margin: 0 auto;              /* Centers the container horizontally */
-    padding: 0; /* Remove default padding */
+  margin: 0 ;              /* Centers the container horizontally */
+  padding: 0; /* Remove default padding */
   width: 90%;                  /* Sets the container's width to 90% of its parent element */
   min-height: 500px;
   height: 100%;                /* Make sure parent container has a defined height */
@@ -214,7 +214,7 @@ img{
 
 h3.threeColumn {
   margin-top: 0;        /* Remove top margin */
-  margin-bottom: 10px;  /* Adjust bottom margin */
+  margin-bottom: 0px;  /* Adjust bottom margin */
 }
 
 
