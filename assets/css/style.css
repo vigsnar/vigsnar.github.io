@@ -191,35 +191,42 @@ img{
 }
 
 
+/* General three-column layout */
 .threeColumn {
-  display: flex;        /* Enables flexbox layout */
-  gap: 2vw;             /* Adds a gap of 2% of the viewport width between columns */
-  margin: 0 auto;       /* Centers the container horizontally */
-  width: 90%;           /* Sets the container's width to 80% of its parent element */
+  display: flex;               /* Enables flexbox layout */
+  gap: 2vw;                    /* Adds a gap of 2% of the viewport width between columns */
+  margin: 0 auto;              /* Centers the container horizontally */
+  width: 90%;                  /* Sets the container's width to 90% of its parent element */
+  height: 100%;                /* Make sure parent container has a defined height */
 }
 
+/* Each div inside .threeColumn will take up equal space */
 .threeColumn div {
-  flex: 1;              /* Each div inside .threeColumn will take up equal space */
+  flex-grow: 1;                /* Ensures each div takes equal space */
+  flex-shrink: 1;              /* Allows div to shrink if necessary */
+  flex-basis: 0;               /* Starts each column with 0 width to equally share space */
 }
 
+/* On very large screens (2000px and up), the container takes up 60% of the width */
 @media (min-width: 2000px) {
   .threeColumn {
-    width: 60%;          /* On screens 2000px or wider, the container takes up 60% of the width */
+    width: 60%;                /* On screens 2000px or wider, the container takes up 60% of the width */
   }
 }
 
+/* On screens smaller than 800px, the layout switches to a vertical stack */
 @media screen and (max-width: 800px) {
   .threeColumn {
-    flex-direction: column;  /* Switches the layout to a vertical stack on smaller screens */
+    flex-direction: column;    /* Switches the layout to a vertical stack */
+  }
+  .threeColumn div {
+    width: 100%;               /* Ensures each div takes full width when stacked */
   }
 }
 
-.threeColumn {
-  height: 100vh;  /* Full viewport height, if desired */
-}
-
+/* 80% height utility class */
 .h80 {
-  height: 80%;          /* Ensures elements with .h100 take up the full height of their parent */
+  height: 80%;                 /* Ensures elements with .h80 take up the full height of their parent */
 }
 
 
