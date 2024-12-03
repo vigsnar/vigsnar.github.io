@@ -204,11 +204,11 @@ img{
 .threeColumn {
   display: flex;               /* Enables flexbox layout */
   gap: 2vw;                    /* Adds a gap of 2% of the viewport width between columns */
-  margin: 0 ;              /* Centers the container horizontally */
-  padding: 0; /* Remove default padding */
+  margin: 0 auto;              /* Centers the container horizontally */
+  /*padding: 0; */ /* Remove default padding */
   width: 90%;                  /* Sets the container's width to 90% of its parent element */
-  min-height: 500px;
-  height: 100%;                /* Make sure parent container has a defined height */
+  /*min-height: 500px;*/
+  /*height: 100%;  */              /* Make sure parent container has a defined height */
 }
 
 
@@ -222,11 +222,11 @@ h3.threeColumn {
 
 /* Each div inside .threeColumn will take up equal space */
 .threeColumn div {
-  text-align: center;
+/*  text-align: center;*/
   flex: 1; /* Makes each div take up equal space */
-  flex-grow: 1;                /* Ensures each div takes equal space */
-  flex-shrink: 1;              /* Allows div to shrink if necessary */
-  flex-basis: 0;               /* Starts each column with 0 width to equally share space */
+  /*flex-grow: 1;         */       /* Ensures each div takes equal space */
+  /*flex-shrink: 1;     */         /* Allows div to shrink if necessary */
+  /*flex-basis: 0;     */          /* Starts each column with 0 width to equally share space */
 }
 
 /* On very large screens (2000px and up), the container takes up 60% of the width */
