@@ -37,8 +37,7 @@ h6 {
     @include sans-serif-font;
 }
 
-p,
-li {
+p {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 20px;
@@ -283,6 +282,11 @@ header {
 .call-to-action {
     h2 {
         margin: 0 auto 20px;
+    }
+    li {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 20px;
     }
 }
 
