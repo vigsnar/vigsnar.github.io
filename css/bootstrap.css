@@ -6144,11 +6144,6 @@ button.close {
   }
   .carousel-inner > .item.next.left,
   .carousel-inner > .item.prev.right,
-  .carousel-inner > .item.active {
-    left: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-  }
 }
 .carousel-inner > .active,
 .carousel-inner > .next,
