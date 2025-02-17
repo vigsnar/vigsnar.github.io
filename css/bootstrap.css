@@ -109,7 +109,6 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-button,
 input,
 optgroup,
 select,
@@ -120,6 +119,8 @@ textarea {
 }
 button {
   overflow: visible;
+  font: inherit;
+  color: inherit;
 }
 button,
 select {
