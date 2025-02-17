@@ -6150,9 +6150,6 @@ button.close {
 .carousel-inner > .prev {
   display: block;
 }
-.carousel-inner > .active {
-  left: 0;
-}
 .carousel-inner > .next,
 .carousel-inner > .prev {
   position: absolute;
