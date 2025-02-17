@@ -6046,10 +6046,15 @@ button.close {
   border-right-width: 0;
   border-left-color: #fff;
 }
-.carousel {
+.carousel-container {
+  width: 80%;
+  margin: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lx-gap);
 }
-.carousel-inner {
+.carousel {
   position: relative;
   width: 100%;
   overflow: hidden;
