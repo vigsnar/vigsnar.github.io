@@ -1,21 +1,190 @@
-<section class="bg-primary" style="margin: auto; width: 100%">
-    <div class="carousel-container">
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="img/portfolio/Cluster.jpg">
-                <p class="carousel-caption">
-                    <a href="https://link.springer.com/article/10.1007/s10115-021-01578-0">Nested two-stage clustering algorithm for dietary pattern analysis</a>
-                </p> 
-            </div> 
-            <div class="item">
-                <img src="img/portfolio/Reservoir.png">
-                <p class="carousel-caption">
-                    <a href="https://ieeexplore.ieee.org/abstract/document/9668942">Reservoir networks: Interpretable design</a>
-                </p> 
-            </div> 
-            
-        </div>
-       <button class="btn prev"><</button>
-       <button class="btn next">></button>
+
+
+<style>
+    body {
+  min-height: 100dvh;
+  align-items: center;
+  font-family: "Satoshi", sans-serif;
+  font-size: var(--lx-text-01);
+  font-weight: 500;
+  color: #ffffe6;
+  background-color: #10100e;
+}
+
+.carousel-container {
+  width: 80%;
+  margin: auto;
+  position: relative;
+  display: block;
+  flex-direction: column;
+  gap: var(--lx-gap);
+
+  .carousel {
+    aspect-ratio: 16/9;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .item {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      transition: opacity 0.5s ease-in-out;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .caption {
+        width: 100%;
+        padding: var(--lx-space-01);
+        position: absolute;
+        bottom: 0;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 12px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      &.active {
+        opacity: 1;
+        display: flex;
+      }
+    }
+  }
+
+  .btn {
+    padding: 1em 2em;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    color: #10100e;
+    background-color: #ffffe6;
+    transition: transform 0.2s ease-in-out;
+
+    &:active,
+    &:focus {
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    &:hover {
+      transform: translateY(-50%) scale(0.96);
+    }
+  }
+
+  .prev {
+    left: -5%;
+  }
+
+  .next {
+    right: -5%;
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .dot {
+      cursor: pointer;
+      height: 10px;
+      width: 10px;
+      background-color: #242421;
+      transition: background-color 0.2s ease;
+
+      &.active,
+      &:hover {
+        background-color: #ffffe6;
+      }
+    }
+  }
+}
+
+</style>
+<section>
+  <main class="carousel-container">
+    <div class="carousel">
+      <div class="item active">
+        <img src="https://bit.ly/34xczKy" alt="Image 1" />
+        <p class="caption">Caption for Image 1</p>
+      </div>
+      <div class="item">
+        <img src="https://bit.ly/3lkp5DW" alt="Image 2" />
+        <p class="caption">Caption for Image 2</p>
+      </div>
+      <div class="item">
+        <img src="https://bit.ly/3iMHuI1" alt="Image 3" />
+        <p class="caption">Caption for Image 3</p>
+      </div>
     </div>
-</section>
+    <button class="btn prev"><</button>
+    <button class="btn next">></button>
+    <div class="dots"></div>
+  </main>
+<section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  let carousel = document.querySelector(".carousel");
+  let items = carousel.querySelectorAll(".item");
+  let dotsContainer = document.querySelector(".dots");
+
+  // Insert dots into the DOM
+  items.forEach((_, index) => {
+    let dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dot.dataset.index = index;
+    dotsContainer.appendChild(dot);
+  });
+
+  let dots = document.querySelectorAll(".dot");
+
+  // Function to show a specific item
+  function showItem(index) {
+    items.forEach((item, idx) => {
+      item.classList.remove("active");
+      dots[idx].classList.remove("active");
+      if (idx === index) {
+        item.classList.add("active");
+        dots[idx].classList.add("active");
+      }
+    });
+  }
+
+  // Event listeners for buttons
+  document.querySelector(".prev").addEventListener("click", () => {
+    let index = [...items].findIndex((item) =>
+      item.classList.contains("active")
+    );
+    showItem((index - 1 + items.length) % items.length);
+  });
+
+  document.querySelector(".next").addEventListener("click", () => {
+    let index = [...items].findIndex((item) =>
+      item.classList.contains("active")
+    );
+    showItem((index + 1) % items.length);
+  });
+
+  // Event listeners for dots
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      let index = parseInt(dot.dataset.index);
+      showItem(index);
+    });
+  });
+});
+
+</script>
