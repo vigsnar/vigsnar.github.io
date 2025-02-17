@@ -1,7 +1,7 @@
 
 
 <style>
-    body {
+    section {
   min-height: 100dvh;
   align-items: center;
   font-family: "Satoshi", sans-serif;
@@ -112,27 +112,27 @@
 }
 
 </style>
-<section>
-  <main class="carousel-container">
-    <div class="carousel">
-      <div class="item active">
-        <img src="https://bit.ly/34xczKy" alt="Image 1" />
-        <p class="caption">Caption for Image 1</p>
-      </div>
-      <div class="item">
-        <img src="https://bit.ly/3lkp5DW" alt="Image 2" />
-        <p class="caption">Caption for Image 2</p>
-      </div>
-      <div class="item">
-        <img src="https://bit.ly/3iMHuI1" alt="Image 3" />
-        <p class="caption">Caption for Image 3</p>
-      </div>
+<section class="bg-primary" style="margin: auto">
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="item active">
+                <img src="img/portfolio/Cluster.jpg">
+                <p class="carousel-caption">
+                    <a href="https://link.springer.com/article/10.1007/s10115-021-01578-0">Nested two-stage clustering algorithm for dietary pattern analysis</a>
+                </p> 
+            </div> 
+            <div class="item">
+                <img src="img/portfolio/Reservoir.png">
+                <p class="carousel-caption">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9668942">Reservoir networks: Interpretable design</a>
+                </p> 
+            </div> 
+            
+        </div>
+       <button class="btn prev"><</button>
+       <button class="btn next">></button>
     </div>
-    <button class="btn prev"><</button>
-    <button class="btn next">></button>
-    <div class="dots"></div>
-  </main>
-<section>
+</section>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
