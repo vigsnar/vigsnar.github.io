@@ -63,9 +63,9 @@
             var content = this.previousElementSibling;
             if (content.style.display === "block") {
               content.style.display = "none";
-              content.getElementById("button").innerHTML = "Show Less";
             } else {
               content.style.display = "block";
+              coll.innerHTML = "Show Less";
             }
         });
       }
