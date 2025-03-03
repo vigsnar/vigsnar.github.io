@@ -8,15 +8,23 @@
             flex: 1;
         }
     }
- .image-container {
-     height: 500px;
-     width: 100%;
-     img {
-       height: 100%;
-       width: 100%; 
-       object-fit: cover;
-     }
- }
+   .image-container {
+       height: 500px;
+       width: 100%;
+       img {
+         height: 100%;
+         width: 100%; 
+         object-fit: cover;
+       }
+   }
+    @media (max-width: 768px) {
+        .caption {
+            font-size: 1.5vw;
+        }
+        .column {
+            display: block;
+        }
+    }
 </style>
 <section>
     <div class="container">
