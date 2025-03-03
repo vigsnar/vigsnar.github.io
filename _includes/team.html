@@ -27,13 +27,16 @@
                 margin-bottom: 5%;
             }
         }
-        .container {
-            display: block;
-        }
         .image-container {
             height: 400px;
         }
     }
+    @media (min-width: 769px) {
+        .container {
+            display: flex;
+        }
+    }
+    
 </style>
 <section>
     <div class="container">
@@ -48,7 +51,7 @@
         </div>
     </div>
     <br>
-    <div class="container" style="width: 85%; gap: 2vw; display: flex; margin-bottom: 5rem;">
+    <div class="container" style="width: 85%; gap: 2vw; margin-bottom: 5rem;">
         <div>
             <img src="img/team/vignesh.png" style="width: 100%">
         </div>
