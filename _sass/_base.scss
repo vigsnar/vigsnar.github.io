@@ -326,10 +326,19 @@ header {
 .btn-xl {
     padding: 15px 30px;
 }
+// Projects
+#projects {
+    h4 {
+        text-align: center;
+    }
+}
 // Portfolio
 #portfolio {
     hr {
         margin-bottom: 40px;
+    }
+    p {
+        margin-bottom: 0px;
     }
     .carousel-container {
       width: 60%;
