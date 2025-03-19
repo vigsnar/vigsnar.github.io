@@ -372,7 +372,6 @@ header {
             padding: var(--lx-space-01);
             position: absolute;
             bottom: 0;
-            text-transform: uppercase;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.75);
           }
@@ -476,26 +475,27 @@ header {
          object-fit: cover;
        }
    }
-   @media (max-width: 768px) {
-    .caption {
-        font-size: 2vw;
-    }
-    .column {
-        display: block;
-        .text-center {
-            margin-bottom: 5%;
-        }
-    }
-    .image-container {
-        height: 400px;
-    }
+}
+@media (max-width: 768px) {
+   .caption {
+       font-size: 2vw;
+   }
+   .column {
+       display: block;
+       .text-center {
+           margin-bottom: 5%;
+       }
+   }
+  .image-container {
+      height: 400px;
+  }
 }
 @media (min-width: 769px) {
     .group-lead {
         display: flex;
     }
 }
-}
+
 // Contact
 #contact .fa {
     color: $theme-dark;
