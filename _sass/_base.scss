@@ -1,6 +1,5 @@
 html,
 body {
-    margin: 0;
     height: 100vh;
     overflow: hidden;
     background: black;
@@ -164,9 +163,6 @@ header {
     position: relative;
     width: 100%;
     min-height: auto;
-    @include background-cover;
-    background-position: center;
-    background-image: url('../img/header.jpg');
     text-align: center;
     color: white;
     .header-content {
