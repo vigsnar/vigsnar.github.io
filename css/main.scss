@@ -36,6 +36,8 @@
 // variables.less
 $theme-primary: #F05F40;
 $theme-dark: #222;
+$theme-primary-transparent: rgba($theme-primary, 0.75);
+$theme-dark-transparent: rgba($theme-dark, 0.75);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
