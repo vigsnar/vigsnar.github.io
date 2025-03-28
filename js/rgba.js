@@ -111,8 +111,8 @@ void main(void) {
         document.body.append(canvas);
         if (false === config.fullscreen)
             return
-        addEventListener("resize", () => this.resize(innerWidth, innerHeight));
-        this.newSize(innerWidth, innerHeight);
+        addEventListener("resize", () => this.resize(innerWidth, document.body.scrollheight));
+        this.newSize(innerWidth, document.body.scrollHeight);
     } else {
         this.newSize(canvas.width, canvas.height);
     }
