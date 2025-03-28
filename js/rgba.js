@@ -114,7 +114,7 @@ void main(void) {
         addEventListener("resize", () => this.resize(innerWidth, document.body.scrollheight));
         this.newSize(innerWidth, document.body.scrollHeight);
     } else {
-        this.newSize(canvas.width, canvas.height);
+        this.newSize(canvas.width, canvas.scrollHeight);
     }
 
     gl.drawArrays(gl.TRIANGLES, 0, 3);
