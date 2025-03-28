@@ -75,6 +75,14 @@ aside {
     padding: 50px 0;
 }
 
+canvas {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    aspect-ratio: 1099 / 7147;
+    height: 7147px;
+}
+
 .no-padding {
     padding: 0;
 }
