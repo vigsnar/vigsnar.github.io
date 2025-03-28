@@ -2,7 +2,6 @@ html,
 body {
     height: 100%;
     width: 100%;
-    background: black;
 }
 
 body {
@@ -79,8 +78,6 @@ canvas {
     position: absolute;
     z-index: -1;
     top: 0;
-    aspect-ratio: 1099 / 7147;
-    height: 7147px;
 }
 
 .no-padding {
