@@ -6,6 +6,8 @@ body {
 
 body {
     @include serif-font;
+    background-color: black; 
+    background-image: none;
 }
 
 hr {
@@ -59,9 +61,32 @@ p {
     background-color: $theme-dark-transparent;
     color: white;
 }
+// .bg-transparent {
+//     background-color: rgba(255, 255, 255, 0.75);
+//     background-color: transparent;
+// }
+// In _sass/_base.scss
+
+// Find this rule:
 .bg-transparent {
-    background-color: rgba(255, 255, 255, 0.75);
+    // background-color: rgba(255, 255, 255, 0.75);
+    background-color: transparent;
+
+   
+    color: white; 
+    a {
+       color: $theme-primary; 
+       &:hover,
+       &:focus {
+         color: lighten($theme-primary, 15%); 
+       }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: white; 
+    }
 }
+
 .text-faded {
     color: rgba(white, .7);
 }
@@ -74,11 +99,23 @@ aside {
     padding: 50px 0;
 }
 
+// canvas {
+//     position: absolute;
+//     z-index: -1;
+//     top: 0;
+// }
+
 canvas {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-}
+    // position: absolute; // Original value
+ 
+    position: fixed;    // Change from absolute to fixed
+    top: 0;             
+    left: 0;            
+    width: 100%;       
+    height: 100%;       
+    z-index: -1;        
+    display: block;     
+ }
 
 .no-padding {
     padding: 0;
@@ -172,6 +209,7 @@ header {
     min-height: auto;
     text-align: center;
     color: white;
+    background: transparent !important;
     .header-content {
         position: relative;
         text-align: center;
