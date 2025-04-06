@@ -491,30 +491,13 @@ header {
 // Team
 #team {
     .column {
-        display: flex;
-        gap: 2vw;
-        margin: 0 auto;
+        display: block;
         width: 70%;
         div {
             flex: 1;
         }
-    }
-   .image-container {
-       height: 500px;
-       width: 100%;
-       img {
-         height: 100%;
-         width: 100%; 
-         object-fit: cover;
-       }
-   }
-   .column {
-        display: flex;
-        gap: 2vw;
-        margin: 0 auto;
-        width: 70%;
-        div {
-            flex: 1;
+        .text-center {
+            margin-bottom: 5%;
         }
     }
    .image-container {
@@ -531,18 +514,15 @@ header {
    .caption {
        font-size: 2vw;
    }
-   .column {
-       display: block;
-       .text-center {
-           margin-bottom: 5%;
-       }
-   }
   .image-container {
       height: 400px;
   }
 }
 @media (min-width: 769px) {
     .group-lead {
+        display: flex;
+    }
+    .column {
         display: flex;
     }
 }
