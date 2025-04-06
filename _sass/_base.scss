@@ -491,7 +491,6 @@ header {
 // Team
 #team {
     .column {
-        display: block;
         width: 70%;
         margin: 0 auto;
         div {
@@ -525,6 +524,7 @@ header {
     }
     .column {
         display: flex;
+        gap: 2vw;
     }
 }
 
