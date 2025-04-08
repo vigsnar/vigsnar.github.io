@@ -397,6 +397,7 @@ header {
             padding: var(--lx-space-01);
             position: absolute;
             bottom: 0;
+            margin-bottom: 5%;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.75);
           }
@@ -466,12 +467,14 @@ header {
 #team {
     .column {
         width: 70%;
-        margin: 0 auto;
+        margin: auto;
         div {
             flex: 1;
         }
         .text-center {
+            font-size: 150%;
             margin-bottom: 5%;
+            margin-top: 5%;
         }
     }
    .image-container {
@@ -499,6 +502,9 @@ header {
     .column {
         display: flex;
         gap: 2vw;
+    }
+    .caption {
+        font-size: 150%;
     }
 }
 
