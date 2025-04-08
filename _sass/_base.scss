@@ -47,44 +47,26 @@ p {
 
 .bg-primary {
     background-color: $theme-primary;
+    color: white;
 }
 
 .bg-dark {
     background-color: $theme-dark;
     color: white;
 }
-.bg-primary-transparent {
-    background-color: $theme-primary-transparent;
-    color: #fff;
+.bg-light {
+    background-attachment: $theme-light;
 }
-.bg-dark-transparent {
-    background-color: $theme-dark-transparent;
+.bg-primary-transparent {
+    background-color: rgba($theme-primary, 0.75);
     color: white;
 }
-// .bg-transparent {
-//     background-color: rgba(255, 255, 255, 0.75);
-//     background-color: transparent;
-// }
-// In _sass/_base.scss
-
-// Find this rule:
-.bg-transparent {
-    // background-color: rgba(255, 255, 255, 0.75);
-    background-color: transparent;
-
-   
-    color: white; 
-    a {
-       color: $theme-primary; 
-       &:hover,
-       &:focus {
-         color: lighten($theme-primary, 15%); 
-       }
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: white; 
-    }
+.bg-dark-transparent {
+    background-color: rgba($theme-dark, 0.75);
+    color: white;
+}
+.bg-light-transparent {
+    background-color: rgba($theme-light, 0.75);
 }
 
 .text-faded {
@@ -99,16 +81,8 @@ aside {
     padding: 50px 0;
 }
 
-// canvas {
-//     position: absolute;
-//     z-index: -1;
-//     top: 0;
-// }
-
 canvas {
-    // position: absolute; // Original value
- 
-    position: fixed;    // Change from absolute to fixed
+    position: fixed;
     top: 0;             
     left: 0;            
     width: 100%;       
