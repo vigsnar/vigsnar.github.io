@@ -29,4 +29,4 @@ gem "jekyll", "~> 4.2"  # Or use a version compatible with the theme if known
 
 # Since you have a _sass folder, Jekyll's built-in converter
 # should work, but sometimes themes require a specific one.
-gem "jekyll-sass-converter" # Usually not needed unless specified
+# gem "jekyll-sass-converter" # Usually not needed unless specified
