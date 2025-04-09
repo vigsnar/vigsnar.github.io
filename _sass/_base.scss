@@ -357,7 +357,9 @@ header {
         text-align: center;
     }
     .image-container {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 5% 0 5% 0 ;
     }
 }
