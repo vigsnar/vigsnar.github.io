@@ -402,7 +402,7 @@ header {
             width: 100%;
             padding: var(--lx-space-01);
             position: absolute;
-            bottom: 0;
+            bottom: -50px;  /* Moved further down */
             margin-bottom: 5%;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.75);
