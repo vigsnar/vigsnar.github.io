@@ -36,7 +36,8 @@
 // variables.less
 $theme-primary: #0a81f7;
 $theme-dark: #222;
-$theme-light: #DDD; 
+$theme-light: #DDD;
+$link-color: #0a81f7; // Set your desired hyperlink color here
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
