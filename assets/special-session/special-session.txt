@@ -1,0 +1,54 @@
+                       SPECIAL SESSION
+ SYSTEMS-THEORETIC APPROACHES TO LEARNING 4.0: FROM CLASSICAL
+               TO QUANTUM NEURAL NETWORKS
+The application of dynamical systems theory to enhance learning efficiency has
+emerged as a powerful paradigm, offering a principled foundation for understanding,
+designing, and optimizing intelligent systems. By providing a structured framework
+to analyze information flow, stability, and convergence, dynamical systems theory not
+only improves explainability and interpretability but also enables provable guarantees
+in both classical and quantum neural networks. This perspective bridges learning,
+optimization, and control, transforming training processes into well-posed control
+problems that enhance robustness, adaptability, and theoretical rigor. As advances in
+areas such as continuous-time modeling, physics-informed learning, and quantum
+machine learning continue to expand, dynamical systems theory provides the
+common language needed to unify these developments and guide the next generation
+of learning architectures.
+The special session will focus on the role of systems theory in advancing learning
+algorithms, particularly within dynamic and evolving environments. It will showcase
+cutting-edge developments at the intersection of systems-theoretic principles and
+learning methodologies, emphasizing both foundational frameworks and real-world
+applications. Key topics include real-time and lifelong learning, continual and
+curriculum learning, federated and distributed learning architectures, adaptive
+control in deep neural networks, reinforcement learning in single- and multi-agent
+systems, adaptive dynamic programming for optimal control in evolving systems,
+physics-informed neural networks (PINNs), neural ordinary differential equations
+(Neural ODEs), quantum computing and quantum machine learning algorithms and
+their applications, and system identification techniques such as SINDy, Koopman
+operator theory, and other spectral/pseudo-spectral methods. Expert researchers in
+these areas will present their findings, demonstrating how integrating systems theory
+enhances performance, robustness, and interpretability in modern learning-based
+approaches. Attendees will gain insights into the synergy between dynamical systems
+theory and both classical and quantum machine learning, uncovering how these
+domains complement and reinforce one another. This special session promises a
+comprehensive exploration of innovative approaches and their transformative
+potential for next generation learning paradigms.
+
+SPECIAL SESSION ORGANIZERS
+
+Vignesh Narayanan, Assistant Professor, AI Institute, University of South Carolina,
+Columbia, Web: https://vigsnar.github.io/
+
+Avimanyu Sahoo, Assistant Professor, Electrical and Computer Engineering,
+University of Alabama in Huntsville, Huntsville, AL. Web:
+https://sites.google.com/uah.edu/accl
+
+Krishnan Raghavan, Assistant Computational Mathematician, Argonne National
+Laboratory, Chicago, Illinois, US, Web: https://krm9c.github.io/
+
+PRIMARY CONTACT EMAIL ADDRESS: vignar@sc.edu
+
+IMPORTANT DATES
+31 January: Paper submission deadline (23:59, anywhere on Earth)
+15 March: Paper acceptance notification
+15 April: Camera-ready papers
+
