@@ -1,2 +1,7 @@
 _site/
 .sass-cache/
+
+# Bundler and local gems
+.bundle/
+vendor/
+vendor/bundle/

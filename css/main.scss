@@ -44,3 +44,23 @@ $link-color: #0a81f7; // Set your desired hyperlink color here
         "mixins",
         "base"
 ;
+
+// Styles specific to the Resources page
+body#resources-page {
+        color: #ffffff; // make page text white
+
+        // Ensure headings and paragraphs inherit the white color
+        h1, h2, h3, h4, h5, h6, p, li {
+                color: inherit;
+        }
+
+        // Keep links in the site's configured link color
+        a {
+                color: $link-color;
+        }
+
+        a:hover,
+        a:focus {
+                color: lighten($link-color, 8%);
+        }
+}
