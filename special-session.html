@@ -26,7 +26,10 @@ title: Special Session — IJCNN
 
         <!-- Show the provided WCCI2026 image for a pixel-accurate view -->
         <div style="margin-top:20px;">
-          <img src="{{ '/assets/special-session/WCCI2026.png' | relative_url }}" alt="Special session flyer" style="max-width:100%;height:auto;border:1px solid rgba(0,0,0,0.08);box-shadow:0 2px 6px rgba(0,0,0,0.08);" />
+          <picture>
+            <source srcset="{{ '/assets/special-session/WCCI2026.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/assets/special-session/WCCI2026.png' | relative_url }}" alt="Special session flyer" style="max-width:100%;height:auto;border:1px solid rgba(0,0,0,0.08);box-shadow:0 2px 6px rgba(0,0,0,0.08);" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </div>
