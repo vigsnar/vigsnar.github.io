@@ -10,10 +10,30 @@
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        event.preventDefault();
+        var href = $anchor.attr('href');
+
+        // If href contains a fragment, extract it (works with '#about' and '/base/#about')
+        var hashIndex = href ? href.indexOf('#') : -1;
+        if (hashIndex === -1) {
+            // no fragment — let the link behave normally
+            return;
+        }
+
+        var fragment = href.substring(hashIndex); // e.g. '#about'
+        var pathBeforeHash = href.substring(0, hashIndex);
+
+        // If the fragment exists on the current page, smooth-scroll to it
+        if ($(fragment).length && (pathBeforeHash === '' || pathBeforeHash === window.location.pathname || pathBeforeHash === window.location.pathname + '/')) {
+            $('html, body').stop().animate({
+                scrollTop: ($(fragment).offset().top - 50)
+            }, 1250, 'easeInOutExpo');
+            event.preventDefault();
+            return;
+        }
+
+        // Otherwise, navigate to the href (front page + fragment). Allow default navigation.
+        // This will load the front page which can then jump to the fragment.
+        // Do not call preventDefault so the browser navigates.
     });
 
     // Highlight the top nav as scrolling occurs
