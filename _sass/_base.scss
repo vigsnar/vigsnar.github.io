@@ -353,6 +353,8 @@ header {
 }
 // Projects
 #projects {
+    background-color: black;
+    color: white;
     h4 {
         text-align: center;
     }
@@ -362,6 +364,7 @@ header {
         align-items: center;
         margin: 5% 0 5% 0 ;
     }
+    a { color: $link-color; }
 }
 // Portfolio
 #portfolio {
@@ -471,6 +474,8 @@ header {
 }
 // Team
 #team {
+    background-color: black;
+    color: white;
     .column {
         width: 70%;
         margin: auto;
@@ -492,6 +497,7 @@ header {
          object-fit: cover;
        }
    }
+    a { color: $link-color; }
 }
 @media (max-width: 768px) {
    .caption {
