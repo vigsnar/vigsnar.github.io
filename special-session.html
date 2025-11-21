@@ -11,9 +11,18 @@ title: Special Session — IJCNN
 
   <section id="special-session" class="container text-white" style="padding-top:80px;padding-bottom:60px;color:#fff;">
     <style>
-      /* Ensure all text and links in this section appear white */
+      /* Typography: headings in Calibri, body in Palatino; preserve white color */
+      @font-face { font-family: 'CalibriFallback'; src: local('Calibri'), local('Helvetica Neue'), local('Arial'); }
       #special-session, #special-session * { color: #fff !important; }
       #special-session a { color: #fff !important; }
+      /* Headings: Calibri (fallback to sans-serif) */
+      #special-session .ss-heading, #special-session .ss-top-line, #special-session .ss-title { font-family: 'CalibriFallback', 'Helvetica Neue', Arial, sans-serif; }
+      /* Body text: Palatino family */
+      #special-session .ss-body { font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; }
+      /* Small heading tweaks */
+      #special-session .ss-top-line { font-size: 1.25rem; margin: 0 0 6px 0; font-weight: 600; }
+      #special-session .ss-title { font-size: 1.4rem; margin: 0 0 12px 0; font-weight: 700; }
+      #special-session .ss-heading { font-size: 1.05rem; margin-top: 18px; margin-bottom: 8px; font-weight: 700; }
     </style>
     <div class="row" style="margin-bottom:24px;">
       <div class="col-md-8 col-md-offset-2 text-center">
@@ -25,7 +34,8 @@ title: Special Session — IJCNN
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1>Special Session — SYSTEMS-THEORETIC APPROACHES TO LEARNING 4.0: FROM CLASSICAL TO QUANTUM NEURAL NETWORKS</h1>
+        <h1 class="ss-top-line text-center">Special Session</h1>
+        <h2 class="ss-title text-center">SYSTEMS-THEORETIC APPROACHES TO LEARNING 4.0: FROM CLASSICAL TO QUANTUM NEURAL NETWORKS</h2>
       </div>
     </div>
 
@@ -34,7 +44,7 @@ title: Special Session — IJCNN
       </div>
     </div>
     <div class="row" style="margin-top:30px;">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-10 col-md-offset-1 ss-body">
     
 
         <p>The application of dynamical systems theory to enhance learning efficiency has emerged as a powerful paradigm, offering a principled foundation for understanding, designing, and optimizing intelligent systems. By providing a structured framework to analyze information flow, stability, and convergence, dynamical systems theory not only improves explainability and interpretability but also enables provable guarantees in both classical and quantum neural networks. This perspective bridges learning, optimization, and control, transforming training processes into well-posed control problems that enhance robustness, adaptability, and theoretical rigor.</p>
@@ -43,16 +53,17 @@ title: Special Session — IJCNN
 
         <p><strong>Key topics include:</strong> real-time and lifelong learning, continual and curriculum learning, federated and distributed learning architectures, adaptive control in deep neural networks, reinforcement learning in single- and multi-agent systems, adaptive dynamic programming for optimal control in evolving systems, physics-informed neural networks (PINNs), neural ordinary differential equations (Neural ODEs), quantum computing and quantum machine learning algorithms and their applications, and system identification techniques such as SINDy, Koopman operator theory, and other spectral/pseudo-spectral methods.</p>
 
-        <h4>Special Session Organizers</h4>
+        <h4 class="ss-heading">Special Session Organizers</h4>
         <ul>
           <li>Vignesh Narayanan, Assistant Professor, AI Institute, University of South Carolina — <a href="https://vigsnar.github.io/" target="_blank">https://vigsnar.github.io/</a></li>
           <li>Avimanyu Sahoo, Assistant Professor, Electrical and Computer Engineering, University of Alabama in Huntsville — <a href="https://sites.google.com/uah.edu/accl" target="_blank">https://sites.google.com/uah.edu/accl</a></li>
           <li>Krishnan Raghavan, Assistant Computational Mathematician, Argonne National Laboratory — <a href="https://krm9c.github.io/" target="_blank">https://krm9c.github.io/</a></li>
         </ul>
 
-        <p><strong>Primary contact:</strong> <a href="mailto:vignar@sc.edu">vignar@sc.edu</a></p>
+        <h4 class="ss-heading">Primary contact</h4>
+        <p><a href="mailto:vignar@sc.edu">vignar@sc.edu</a></p>
 
-        <h4>Important Dates</h4>
+        <h4 class="ss-heading">Important Dates</h4>
         <ul>
           <li><strong>31 January:</strong> Paper submission deadline (23:59, anywhere on Earth)</li>
           <li><strong>15 March:</strong> Paper acceptance notification</li>
