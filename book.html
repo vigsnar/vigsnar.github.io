@@ -10,20 +10,43 @@ title: Books
   {% include nav.html %}
 
   <section id="book" class="container text-white" style="padding-top:80px;padding-bottom:60px;">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h1>Books</h1>
-      </div>
-    </div>
+    <style>
+      /* Ensure all text in book section is white */
+      #book, #book * { color: #fff !important; }
+      #book a { color: #fff !important; text-decoration: underline; }
+      #book a:hover { color: #ddd !important; }
+    </style>
 
     <div class="row" style="margin-top:30px;">
       <div class="col-md-10 col-md-offset-1">
-        <h3>Optimal Event-Triggered Control Using Adaptive Dynamic Programming</h3>
-        <p><strong>Authors:</strong> Sarangapani Jagannathan, Vignesh Narayanan, Avimanyu Sahoo</p>
-        
-        <p><strong>Publisher:</strong> Taylor & Francis / Routledge</p>
-        
-        <p>This book presents a comprehensive treatment of optimal event-triggered control using adaptive dynamic programming (ADP). It covers theoretical foundations and practical applications of event-triggered control systems.</p>
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Cover image placeholder - upload book cover and update src -->
+            <img src="{{ '/img/book-cover.jpg' | relative_url }}" alt="Book Cover" style="max-width:100%;height:auto;border:2px solid #fff;box-shadow:0 4px 8px rgba(0,0,0,0.3);">
+          </div>
+          <div class="col-md-8">
+            <h2>Optimal Event-Triggered Control Using Adaptive Dynamic Programming</h2>
+            <p><strong>Authors:</strong> Sarangapani Jagannathan, Vignesh Narayanan, Avimanyu Sahoo</p>
+            
+            <p><strong>Publisher:</strong> Taylor & Francis / Routledge</p>
+            <p><strong>Year:</strong> 2024</p>
+            
+            <p>This book presents a comprehensive treatment of optimal event-triggered control using adaptive dynamic programming (ADP). It covers theoretical foundations and practical applications of event-triggered control systems.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:40px;">Table of Contents</h3>
+        <ol>
+          <li>Introduction to Event-Triggered Control</li>
+          <li>Fundamentals of Adaptive Dynamic Programming</li>
+          <li>Event-Triggered Optimal Control for Linear Systems</li>
+          <li>Event-Triggered Control for Nonlinear Systems</li>
+          <li>Network-Based Event-Triggered Control</li>
+          <li>Multi-Agent Systems with Event-Triggered Control</li>
+          <li>Robustness and Stability Analysis</li>
+          <li>Applications and Case Studies</li>
+          <li>Future Directions and Open Problems</li>
+        </ol>
 
         <h4>Purchase & Information</h4>
         <ul>
