@@ -1,36 +1,44 @@
+<!-- Main navigation bar - fixed at top of page across all layouts -->
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+            <!-- Mobile hamburger menu button -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <!-- Site logo/brand - links to homepage -->
             <a class="navbar-brand page-scroll" href="{{ '/' | relative_url }}">DS&AI</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- Main navigation menu items (right-aligned) -->
             <ul class="nav navbar-nav navbar-right">
+                <!-- About section link -->
                 <li>
                     <a class="page-scroll" href="{{ '/#about' | relative_url }}">About</a>
                 </li>
+                <!-- News section link -->
                 <li>
                     <a class="page-scroll" href="{{ '/#news' | relative_url }}">News</a>
                 </li>
+                <!-- Projects section link -->
                 <li>
                     <a class="page-scroll" href="{{ '/#projects' | relative_url }}">Projects</a>
                 </li>
+                <!-- Team section link -->
                 <li>
                     <a class="page-scroll" href="{{ '/#team' | relative_url }}">Team</a>
                 </li>
-                
+                <!-- Resources section link -->
                 <li>
                     <a class="page-scroll" href="{{ '/#resources' | relative_url }}">Resources</a>
                 </li>
-
+                <!-- Contact section link -->
                 <li>
                     <a class="page-scroll" href="{{ '/#contact' | relative_url }}">Contact</a>
                 </li>
