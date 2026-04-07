@@ -1,0 +1,213 @@
+---
+layout: project-page
+title: Planning Ontology & Explainability
+project_slug: ontology
+project_subtitle: Ontology-driven representations for planning knowledge and explainability, spanning PO, maPO, and OMEGA for queryable, reusable, and human-readable planner behavior.
+project_authors: Bharath Muppasani, Vishal Pallagani, Ritirupa Dey, Nitin Gupta, Raghava Mutharaju, Biplav Srivastava, Vignesh Narayanan
+project_tags:
+  - Ontology
+  - Explainable AI
+  - Knowledge Graphs
+  - Multi-Agent Path Finding
+project_badges:
+  - CODS 2024
+  - Discover Data 2025
+  - AAAI-MAKE 2026
+  - AAAI 2026 Demo
+project_links:
+  - label: Overview
+    url: "#overview"
+    kind: anchor
+    style: primary
+  - label: Planning Ontology
+    url: "#po"
+    kind: anchor
+  - label: maPO and OMEGA
+    url: "#mapo"
+    kind: anchor
+  - label: Publications
+    url: "#publications"
+    kind: anchor
+  - label: PO Portal
+    url: "https://ai4society.github.io/planning-ontology/"
+    kind: external
+  - label: maPO Portal
+    url: "https://ai4society.github.io/ma-planning-ontology/"
+    kind: external
+project_stats:
+  - value: "95.2%"
+    label: User preference over baseline explanations
+  - value: "4.40/5"
+    label: OMEGA clarity rating
+  - value: "94.39%"
+    label: Competency-question coverage
+  - value: "4"
+    label: Published milestones from 2024 to 2026
+project_scripts:
+  - /js/project-lightbox.js
+---
+
+<section class="project-section" id="overview">
+  <h2>Overview</h2>
+  <p>
+    This research line builds ontological infrastructure for automated planning and explainability. It starts with a general planning ontology (PO) for planner behavior, expands into multi-agent execution semantics (maPO), and culminates in OMEGA, an explainability pipeline that converts raw MAPF traces into human-readable causal narratives.
+  </p>
+  <p>
+    The unifying goal is to make planning artifacts queryable and reusable: selecting planners from historical signals, extracting reusable macro patterns, and explaining behavior in robot-deployment settings where standard solver logs are hard to interpret.
+  </p>
+
+  <div class="project-phase-grid">
+    <article class="project-card project-phase-card">
+      <span class="project-phase-meta">CODS 2024</span>
+      <h3 class="project-phase-title">Planning Ontology Foundation</h3>
+      <p class="project-phase-copy">Initial ontology schema for planning domains, planners, tasks, and performance properties.</p>
+    </article>
+    <article class="project-card project-phase-card">
+      <span class="project-phase-meta">Discover Data 2025</span>
+      <h3 class="project-phase-title">Expanded PO + Applications</h3>
+      <p class="project-phase-copy">Extended ontology coverage and evidence on planner selection and planning knowledge reuse.</p>
+    </article>
+    <article class="project-card project-phase-card">
+      <span class="project-phase-meta">AAAI-MAKE 2026</span>
+      <h3 class="project-phase-title">maPO for MAPF</h3>
+      <p class="project-phase-copy">Ontology extension for collision events, replanning causes, and multi-agent execution semantics.</p>
+    </article>
+    <article class="project-card project-phase-card">
+      <span class="project-phase-meta">AAAI 2026 Demo</span>
+      <h3 class="project-phase-title">OMEGA Explainability Tool</h3>
+      <p class="project-phase-copy">Operational system that maps MAPF execution logs to contextual, user-facing explanations.</p>
+    </article>
+  </div>
+
+  <div class="project-callout">
+    <strong>Core Thesis:</strong> planning ontologies are not just metadata repositories; they are decision-support layers that improve planner choice, execution understanding, and human trust.
+  </div>
+</section>
+
+<section class="project-section" id="po">
+  <div class="project-section-head">
+    <h2>Planning Ontology (PO)</h2>
+    <a class="project-section-link" href="https://ai4society.github.io/planning-ontology/" target="_blank" rel="noopener">PO Project ↗</a>
+  </div>
+  
+  <div class="project-callout">
+    <strong>Key Idea:</strong> PO is an OWL 2 ontology that organizes planning domains, solver properties, run-time outcomes, and <code>PROV-O</code> provenance into a SPARQL-queryable knowledge graph.
+  </div>
+
+  <div class="project-grid-3">
+    <article class="project-card">
+      <span class="project-card-kicker">Planner Performance &amp; Selection</span>
+      <p>Historical IPC traces become structured evidence for selecting planners that best match domain and instance characteristics before execution.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">Macro Actions Extraction</span>
+      <p>Provenance-rich action traces support mining reusable macro operators that reduce search burden in related planning tasks.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">Tooling Integration</span>
+      <p>A Planning.Domains plugin converts PDDL artifacts to RDF, enabling direct ontology-backed analysis in existing planning workflows.</p>
+    </article>
+  </div>
+
+  <div class="project-media-grid" style="margin-top:16px;">
+    <figure class="project-figure">
+      <img src="{{ '/assets/projects/ontology/images/planning-ontology.png' | relative_url }}" alt="Planning ontology concept map" data-project-lightbox>
+      <figcaption>PO schema linking planners, domains, tasks, and execution outcomes.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="{{ '/assets/projects/ontology/images/po-tool.gif' | relative_url }}" alt="Planning.Domains plugin animation" data-project-lightbox>
+      <figcaption>Planning.Domains plugin for PDDL to RDF translation.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="project-section" id="mapo">
+  <div class="project-section-head">
+    <h2>Multi-Agent Planning Ontology (maPO) &amp; OMEGA</h2>
+    <a class="project-section-link" href="https://ai4society.github.io/ma-planning-ontology/" target="_blank" rel="noopener">maPO Project ↗</a>
+  </div>
+  
+  <div class="project-callout">
+    <strong>maPO &amp; OMEGA:</strong> maPO models MAPF-specific execution semantics including agent conflicts, collision events, and replanning context. OMEGA uses this schema to convert low-level trace logs into causal, user-readable explanations.
+  </div>
+
+  <p>
+    Key entities include <code>ma:Agent</code>, <code>ma:CollisionEvent</code>, <code>ma:ConflictAlert</code>, and <code>ma:ReplanningStrategy</code>, connected through provenance links that preserve event causality.
+  </p>
+  <p>
+    <strong>OMEGA Framework:</strong> execution traces are transformed to RDF graphs over maPO, queried through SPARQL templates, and rendered as contextual explanations aligned with animation states. In user studies, participants preferred OMEGA explanations over raw logs (<strong>95.2%</strong> preference; <strong>4.40/5</strong> clarity).
+  </p>
+
+  <figure class="project-figure" style="margin-bottom: 24px;">
+    <img src="{{ '/assets/projects/ontology/images/mapo-architecture.png' | relative_url }}" alt="Log-to-graph pipeline and interactive OMEGA explanations" data-project-lightbox>
+    <figcaption>Log-to-graph pipeline and interactive OMEGA explanations.</figcaption>
+  </figure>
+
+  <h3>System Demonstration</h3>
+  <div class="project-media-grid">
+    <div>
+      <figure class="project-figure">
+        <img src="{{ '/assets/projects/ontology/images/mapo-architecture.png' | relative_url }}" alt="OMEGA Demo Video">
+        <figcaption>
+          OMEGA demonstration video (Google Drive).<br><br>
+          <a class="project-link-button project-link-button-primary" href="https://drive.google.com/file/d/1FJ-Qm154FZXwJw94spUKh3PO3YzoqkcB/view" target="_blank" rel="noopener">Watch Demo</a>
+        </figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure class="project-figure">
+        <img src="{{ '/assets/projects/ontology/images/mapo-architecture.png' | relative_url }}" alt="OMEGA architecture view" data-project-lightbox>
+        <figcaption>Architecture view used in the OMEGA walkthrough.</figcaption>
+      </figure>
+    </div>
+  </div>
+  
+  <p style="margin-top: 16px;">
+    The demo emphasizes practical explainability during MAPF execution, showing why collisions occur, how conflict alerts are triggered, and which replanning strategy resolves each issue.
+  </p>
+</section>
+
+<section class="project-section" id="publications">
+  <h2>Selected Publications</h2>
+  <p>
+    The publications below trace the progression from planning ontology foundations to MAPF-specific
+    explanation tooling. Each milestone adds a more concrete execution or explanation layer on top of the
+    same semantic base.
+  </p>
+
+  <ul class="project-publication-list">
+    <li class="project-publication">
+      <span class="project-badge">AAAI 2026 Demo</span>
+      <h3>OMEGA: An Ontology-Driven Tool for Explaining Multi-Agent Path Finding</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Ritirupa Dey, Biplav Srivastava, Vignesh Narayanan</p>
+      <div class="project-publication-links">
+        <a class="project-chip-link" href="{{ '/assets/projects/ontology/papers/aaai-2026-omega-demo.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
+        <a class="project-chip-link" href="{{ '/assets/projects/ontology/posters/aaai-2026-omega-poster.pdf' | relative_url }}" target="_blank" rel="noopener">Poster</a>
+      </div>
+    </li>
+    <li class="project-publication">
+      <span class="project-badge">AAAI-MAKE 2026</span>
+      <h3>maPO: An Ontology for Multi-Agent Path Finding and Its Usage for Explaining Planner Behaviour</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Biplav Srivastava, Vignesh Narayanan</p>
+      <div class="project-publication-links">
+        <a class="project-chip-link" href="{{ '/assets/projects/ontology/papers/aaai-make-2026-mapo.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </li>
+    <li class="project-publication">
+      <span class="project-badge">Discover Data 2025</span>
+      <h3>Building a Plan Ontology to Represent and Exploit Planning Knowledge and Its Applications</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Nitin Gupta, Vishal Pallagani, Biplav Srivastava, Raghava Mutharaju, Michael N. Huhns, Vignesh Narayanan</p>
+      <div class="project-publication-links">
+        <a class="project-chip-link" href="{{ '/assets/projects/ontology/papers/discover-data-2025-plan-ontology.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </li>
+    <li class="project-publication">
+      <span class="project-badge">CODS 2024</span>
+      <h3>Building a Plan Ontology to Represent and Exploit Planning Knowledge</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Nitin Gupta, Vishal Pallagani, Biplav Srivastava, Raghava Mutharaju, Michael N. Huhns, Vignesh Narayanan</p>
+      <div class="project-publication-links">
+        <a class="project-chip-link" href="{{ '/assets/projects/ontology/papers/cods-2024-plan-ontology.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </li>
+  </ul>
+</section>

@@ -3,16 +3,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% elsif page.project_subtitle %}{{ page.project_subtitle | strip_html | strip_newlines }}{% else %}{{ site.description | strip_html | strip_newlines }}{% endif %}">
     <meta name="author" content="">
 
-    <title>Dynamical Systems and AI Research Group</title>
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
     <!-- Favicon -->
     <link href="https://aiisc.ai/assets/img/logo.png" rel="icon">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | relative_url }}" type="text/css">
 
     <!-- Custom Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css"> -->
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/animate.min.css' | relative_url }}" type="text/css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" type="text/css">

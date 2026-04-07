@@ -1,0 +1,273 @@
+---
+layout: project-page
+title: Opinion Dynamics & Information Spread Control
+project_slug: infospread
+project_subtitle: Planning and learning methods for controlling misinformation propagation in social networks, from the interactive InfoSpread system to generalized policies that transfer across unseen graph topologies.
+project_authors: Bharath Muppasani, Protik Nag, Vignesh Narayanan, Biplav Srivastava, Michael N. Huhns
+project_tags:
+  - Opinion Networks
+  - Generalized Planning
+  - Intervention Planning
+  - Dialog Management
+project_badges:
+  - AAAI 2024 Demo
+  - NeurIPS 2024
+  - GenPlan at AAAI 2025
+  - Best Demo Award
+project_links:
+  - label: Overview
+    url: "#abstract"
+    kind: anchor
+    style: primary
+  - label: Modeling
+    url: "#modeling"
+    kind: anchor
+  - label: Strategies
+    url: "#strategies"
+    kind: anchor
+  - label: System
+    url: "#system"
+    kind: anchor
+  - label: Publications
+    url: "#publications"
+    kind: anchor
+project_stats:
+  - value: "3"
+    label: Project phases
+  - value: "86%"
+    label: Infection reduction on Cora
+  - value: "6"
+    label: Reward structures studied
+  - value: "AAAI 2024"
+    label: Best Demo award
+mathjax: true
+project_scripts:
+  - /js/project-lightbox.js
+---
+
+<section class="project-section" id="abstract">
+  <h2>Overview</h2>
+  <p>
+    InfoSpread studies how to control misinformation propagation in social graphs through sequential
+    intervention planning. Each person is modeled as an agent with a continuous opinion value,
+    trust-weighted interactions, and limited opportunities for corrective intervention.
+  </p>
+  <p>
+    The project develops across three connected phases: an interactive demo system for expressive
+    simulation, generalized planning policies that transfer across graph families, and dialog-state
+    control for belief management in human-AI settings.
+  </p>
+
+  <div class="project-grid-3">
+    <article class="project-card">
+      <span class="project-card-kicker">AAAI 2024 Demo</span>
+      <h3>InfoSpread System</h3>
+      <p>Interactive simulation and planning-backed intervention loops for misinformation control. The demo received the AAAI 2024 Best Demo Award.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">NeurIPS 2024</span>
+      <h3>Generalized Planning Policies</h3>
+      <p>Graph-based policies trained on structured plan traces and simulation rollouts, designed to transfer from small training graphs to larger unseen networks.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">AAAI 2025</span>
+      <h3>Dialog-State Belief Control</h3>
+      <p>Extension of the same planning view to dialog management, where user beliefs across topics become the latent planning state.</p>
+    </article>
+  </div>
+</section>
+
+<section class="project-section" id="modeling">
+  <h2>Modeling Dynamic Opinion Networks</h2>
+  <p>
+    The social system is represented as a directed graph \(G = (V, E)\) where each node has a continuous
+    belief value \(x_i(t) \in [-1, 1]\) and each edge carries a trust weight \(\mu_{ik} \in [0,1]\).
+    A node is considered infected when its belief crosses a misinformation threshold such as
+    \(x_i &lt; -0.95\).
+  </p>
+  <p>
+    Opinion updates follow a linear adjustment process driven by trust-weighted interactions between connected agents.
+  </p>
+  <div class="project-equation">
+    $$x_i(t+1)=x_i(t)+\mu_{ik}\bigl(x_k(t)-x_i(t)\bigr)$$
+  </div>
+  <p>
+    At each step, the planner selects a budget-constrained subset of target nodes for corrective intervention. This turns opinion control into a long-horizon sequential decision problem rather than a one-shot classification task.
+  </p>
+
+  <div class="project-callout">
+    <strong>Environment and Intervention Model:</strong>
+    <br><br>
+    <div class="project-grid-2">
+      <div>
+        <p>At each timestep, infected nodes propagate misinformation to their immediate susceptible neighbors. An intervention policy chooses a budget-constrained subset of nodes to receive authentic information.</p>
+        <p>Intervened nodes move toward positive belief, and once a node crosses the positive threshold it is treated as blocked from further misinformation spread. The episode ends when no candidate nodes remain.</p>
+      </div>
+      <figure class="project-figure">
+        <img src="{{ '/assets/projects/infospread/images/our-model-neurips.png' | relative_url }}" alt="Propagation and intervention process schematic" data-project-lightbox>
+        <figcaption>Propagation and intervention dynamics in the simulation environment.</figcaption>
+      </figure>
+    </div>
+    
+    <br>
+    <strong>Infection Rate Metric:</strong> The planning objective is evaluated using the fraction of infected nodes at each timestep.
+    <div class="project-equation">
+      $$\text{InfectionRate}(t)=\frac{|\{v \in V : x_v(t)&lt;-0.95\}|}{|V|}$$
+    </div>
+  </div>
+</section>
+
+<section class="project-section" id="strategies">
+  <h2>Intervention Planning Strategies</h2>
+  <p>
+    Combinatorial node selection quickly makes exact planning intractable. To preserve scale and transfer, we focus on generalized approaches that learn reusable strategies from graph structure.
+  </p>
+
+  <h3>Supervised Learning (SL) with GCNs</h3>
+  <p>
+    We use <strong>Graph Convolutional Networks (GCNs)</strong> to rank intervention candidates based on structural signals such as connectivity, local polarity, and influence flow. Ground-truth supervision is produced from search-derived solutions on small training graphs.
+  </p>
+  <p>
+    This framing addresses the generalized planning question directly: learn a transferable intervention policy that is not tied to specific node identifiers.
+  </p>
+
+  <figure class="project-figure">
+    <img src="{{ '/assets/projects/infospread/images/inference-general-neurips.png' | relative_url }}" alt="GCN inference architecture" data-project-lightbox>
+    <figcaption>Inference pipeline for the generalized planning strategy learned with graph neural models.</figcaption>
+  </figure>
+
+  <h3>Reinforcement Learning (RL) &amp; Reward Engineering</h3>
+  <p>
+    To remove expensive supervised labeling, we introduced a reinforcement learning pipeline with a <strong>Deep Value Network (DVN)</strong> that learns directly from simulation outcomes.
+  </p>
+
+  <div class="project-callout">
+    <strong>RL Advantage:</strong> Learning from feedback avoids NP-hard label generation loops while retaining strong generalization across graph families and scales.
+  </div>
+
+  <p>A key NeurIPS 2024 contribution is the study of <strong>six reward structures</strong> balancing infection control, susceptibility, and intervention speed:</p>
+
+  <div class="project-table-wrap">
+    <table class="project-table">
+      <thead>
+        <tr>
+          <th>Reward</th>
+          <th>Definition</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>R0</strong> (Delta Infection)</td>
+          <td>\(-\Delta I_t\)</td>
+          <td>Rewards reductions in infection rate after an action.</td>
+        </tr>
+        <tr>
+          <td><strong>R1</strong> (Candidate Suppression)</td>
+          <td>\(-|C_t|\)</td>
+          <td>Encourages policies that shrink the set of immediate high-risk neighbors.</td>
+        </tr>
+        <tr>
+          <td><strong>R2</strong> (Hybrid Local+Global)</td>
+          <td>\(-|C_t|-\Delta I_t\)</td>
+          <td>Combines local containment with global infection reduction.</td>
+        </tr>
+        <tr>
+          <td><strong>R3</strong> (Episode Speed)</td>
+          <td>\(1-T_{\text{used}}/T_{\max}\)</td>
+          <td>Rewards finishing containment quickly within the step budget.</td>
+        </tr>
+        <tr>
+          <td><strong>R4</strong> (Current Infection)</td>
+          <td>\(-I_t\)</td>
+          <td>Penalizes states with high overall infection.</td>
+        </tr>
+        <tr>
+          <td><strong>R5</strong> (Mixed Episodic)</td>
+          <td>\(-|C_t|-T_{\text{used}}/T_{\max}\)</td>
+          <td>Balances candidate suppression with faster episode completion.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="project-section" id="system">
+  <h2>InfoSpread System Implementation</h2>
+  <p>
+    We developed <strong>InfoSpread</strong> to connect theoretical planning models to practical experimentation and
+    operator-facing analysis.
+  </p>
+
+  <div class="project-callout">
+    <strong>Numeric PDDL Formulation:</strong>
+    The system includes a numeric PDDL representation with explicit typed entities (<code>agent</code>, <code>source</code>, <code>topic</code>) and fluents such as <code>have-opinion</code> and <code>have-trust</code>, enabling direct execution on planners like Metric-FF.
+  </div>
+
+  <p>
+    The platform compiles network configurations into executable planning problems,
+    launches planning/search backends, and visualizes intervention sequences for human-in-the-loop
+    analysis and override.
+  </p>
+
+  <div class="project-media-grid">
+    <div>
+      <figure class="project-figure">
+        <img src="{{ '/assets/projects/infospread/images/infospread-demo.png' | relative_url }}" alt="InfoSpread Demo Video">
+        <figcaption>
+          InfoSpread system walkthrough (Google Drive).<br><br>
+          <a class="project-link-button project-link-button-primary" href="https://drive.google.com/file/d/19d65zjSoFBSngCIPrteT0_DOlymmkEiM/view?usp=drive_link" target="_blank" rel="noopener">Watch System Demo</a>
+        </figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure class="project-figure">
+        <img src="{{ '/assets/projects/infospread/images/infospread-demo.png' | relative_url }}" alt="InfoSpread UI" data-project-lightbox>
+        <figcaption>Interactive dashboard for inspection and intervention analysis.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Extension to Dialog Management</h3>
+  <p>
+    Recent work extends this formulation to <strong>conversational dialog management</strong>:
+    a user state is represented as connected topic-beliefs, and utterances become interventions over that latent belief graph.
+  </p>
+  <p>
+    This links opinion dynamics with safer human-AI interaction design, where policies are optimized not just for one topic outcome but for coherent, multi-topic behavior change.
+  </p>
+</section>
+
+<section class="project-section" id="publications">
+  <h2>Publications</h2>
+  <ul class="project-publication-list">
+    <li class="project-publication">
+      <span class="project-badge">GenPlan at AAAI 2025</span>
+      <h3>On Generalized Planning for Controlling Opinion Networks: Interpreting Human-AI Dialog States and Beliefs</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Vignesh Narayanan, Biplav Srivastava</p>
+      <div class="project-publication-links">
+        <a class="project-chip-link" href="{{ '/assets/projects/infospread/papers/aaai-2025-dialog-opinion-networks.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
+        <a class="project-chip-link" href="{{ '/assets/projects/infospread/images/genplan-poster.jpg' | relative_url }}" target="_blank" rel="noopener">Poster</a>
+      </div>
+    </li>
+    <li class="project-publication">
+      <span class="project-badge">NeurIPS 2024</span>
+      <h3>Towards Effective Planning Strategies for Dynamic Opinion Networks</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Protik Nag, Vignesh Narayanan, Biplav Srivastava, Michael N. Huhns</p>
+      <div class="project-publication-links">
+        <a class="project-chip-link" href="{{ '/assets/projects/infospread/papers/neurips-2024-opinion-networks.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
+        <a class="project-chip-link" href="https://openreview.net/forum?id=LYivxMp5es" target="_blank" rel="noopener">OpenReview</a>
+        <a class="project-chip-link" href="{{ '/assets/projects/infospread/images/neurips-2024-poster.png' | relative_url }}" target="_blank" rel="noopener">Poster</a>
+      </div>
+    </li>
+    <li class="project-publication">
+      <span class="project-badge">AAAI 2024 Demo</span>
+      <h3>Expressive and Flexible Simulation of Information Spread Strategies in Social Networks Using Planning</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Vignesh Narayanan, Biplav Srivastava, Michael N. Huhns</p>
+      <div class="project-publication-links">
+        <a class="project-chip-link" href="{{ '/assets/projects/infospread/papers/aaai-2024-infospread-demo.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
+        <a class="project-chip-link" href="{{ '/assets/projects/infospread/posters/aaai-2024-demo-poster.pdf' | relative_url }}" target="_blank" rel="noopener">Poster</a>
+      </div>
+    </li>
+  </ul>
+</section>
