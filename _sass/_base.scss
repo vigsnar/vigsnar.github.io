@@ -22,21 +22,6 @@ hr.light {
 }
 
 // Selected Works grid
-.works-student-lead {
-    text-align: center;
-    font-size: 0.85em;
-    color: rgba(white, 0.55);
-    margin-bottom: 12px;
-    margin-top: -8px;
-    letter-spacing: 0.03em;
-
-    a {
-        color: rgba(white, 0.85);
-        &:hover, &:focus {
-            color: $theme-primary;
-        }
-    }
-}
 
 .works-grid {
     display: grid;
@@ -110,9 +95,29 @@ hr.light {
         flex: 1;
     }
 
-    .works-card-arrow {
-        display: block;
+    .works-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-top: 16px;
+    }
+
+    .works-card-lead {
+        font-size: 0.75em;
+        color: rgba(white, 0.45);
+
+        .works-card-lead-name {
+            color: rgba(white, 0.75);
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            &:hover {
+                color: $theme-primary;
+            }
+        }
+    }
+
+    .works-card-arrow {
         font-size: 1.1em;
         color: $theme-primary;
     }
