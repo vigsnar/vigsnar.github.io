@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% include head.html %} 
+  {% include head.html %}
 
-  <body id="page-top">
-    {% include vistas_beyond_consensus/index.html %}
+  <body id="page-top" class="project-page">
+    {% include nav.html %}
+
+    <main class="project-shell">
+      <section class="project-hero">
+        <div class="container">
+          <a class="project-back-link" href="/#projects">Back to Projects</a>
+          <h1 class="project-title">Collaborative Autonomy in Uncertain Environments: Exploring Vistas Beyond Consensus</h1>
+        </div>
+      </section>
+
+      <section class="project-body">
+        <div class="container project-content">
+          {% include vistas_beyond_consensus/index.html %}
+        </div>
+      </section>
+    </main>
+
     {% include scripts.html %}
   </body>
 

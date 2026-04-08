@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% include head.html %} 
+  {% include head.html %}
 
-  <body id="page-top">
-    {% include networked_cps/index.html %}
+  <body id="page-top" class="project-page">
+    {% include nav.html %}
+
+    <main class="project-shell">
+      <section class="project-hero">
+        <div class="container">
+          <a class="project-back-link" href="/#projects">Back to Projects</a>
+          <h1 class="project-title">Learning-Enabled Collaborative Autonomy for Networked CPS</h1>
+        </div>
+      </section>
+
+      <section class="project-body">
+        <div class="container project-content">
+          {% include networked_cps/index.html %}
+        </div>
+      </section>
+    </main>
+
     {% include scripts.html %}
   </body>
 
