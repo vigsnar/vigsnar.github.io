@@ -653,48 +653,67 @@ header {
 #team {
     background: transparent;
     color: white;
-    .column {
-        width: 70%;
-        margin: auto;
-        div {
-            flex: 1;
-        }
-        .text-center {
-            font-size: 150%;
-            margin-bottom: 5%;
-            margin-top: 5%;
-        }
-    }
-   .image-container {
-       height: 500px;
-       width: 100%;
-       img {
-         height: 100%;
-         width: 100%; 
-         object-fit: cover;
-       }
-   }
     a { color: $link-color; }
 }
+
+.student-grid {
+    width: 80%;
+    margin: 0 auto 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 40px;
+}
+
+.student-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.student-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.student-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.student-name {
+    @include sans-serif-font;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    &:hover { color: $theme-primary; }
+}
+
+.student-program {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.02em;
+}
+
+.student-interests {
+    font-size: 0.78rem;
+    color: $theme-primary;
+}
+
 @media (max-width: 768px) {
-   .caption {
-       font-size: 2vw;
-   }
-  .image-container {
-      height: 400px;
-  }
+    .caption { font-size: 2vw; }
+    .student-grid {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
 }
 @media (min-width: 769px) {
-    .group-lead {
-        display: flex;
-    }
-    .column {
-        display: flex;
-        gap: 2vw;
-    }
-    .caption {
-        font-size: 150%;
-    }
+    .group-lead { display: flex; }
+    .caption { font-size: 150%; }
 }
 
 // Contact
