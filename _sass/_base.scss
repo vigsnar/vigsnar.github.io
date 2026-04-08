@@ -21,27 +21,106 @@ hr.light {
     border-color: white;
 }
 
-.selected-projects-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 20px;
+// Selected Works grid
+.works-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 32px;
+}
 
-    li {
-        margin-bottom: 24px;
+.works-grid-featured {
+    grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.works-grid-previous {
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.works-divider {
+    margin-top: 40px;
+    margin-bottom: 8px;
+    max-width: 100%;
+    opacity: 0.2;
+}
+
+.works-card {
+    display: block;
+    border-radius: 6px;
+    text-decoration: none;
+    @include transition-all;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+
+.works-card-featured {
+    background-color: rgba(white, 0.06);
+    border: 1px solid rgba(white, 0.12);
+    padding: 24px 20px 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .works-card-kicker {
+        display: block;
+        font-size: 0.75em;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(white, 0.5);
+        margin-bottom: 8px;
     }
 
-    a {
-        color: white;
+    h3 {
         font-size: 1.05em;
-        &:hover, &:focus {
-            color: lighten($theme-primary, 20%);
-        }
+        color: white;
+        margin: 0 0 10px;
     }
 
     p {
-        color: rgba(white, 0.7);
-        margin-top: 4px;
-        font-size: 0.9em;
+        font-size: 0.875em;
+        color: rgba(white, 0.65);
+        margin-bottom: 0;
+        flex: 1;
+    }
+
+    .works-card-arrow {
+        display: block;
+        margin-top: 16px;
+        font-size: 1.1em;
+        color: $theme-primary;
+    }
+
+    &:hover, &:focus {
+        background-color: rgba(white, 0.11);
+        border-color: rgba($theme-primary, 0.5);
+        color: white;
+        transform: translateY(-2px);
+    }
+}
+
+.works-card-previous {
+    background-color: rgba(white, 0.04);
+    border: 1px solid rgba(white, 0.08);
+    padding: 16px;
+    font-size: 0.85em;
+    color: rgba(white, 0.75);
+    line-height: 1.45;
+
+    &:hover, &:focus {
+        background-color: rgba(white, 0.09);
+        border-color: rgba($theme-primary, 0.4);
+        color: white;
     }
 }
 
@@ -404,7 +483,7 @@ header {
     p {
         margin-bottom: 0px;
     }
-    .carousel-container {
+    .carousel-container-unused {
       width: 60%;
       margin: auto;
       position: relative;

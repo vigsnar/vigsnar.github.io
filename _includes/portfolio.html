@@ -1,69 +1,48 @@
 <section class="bg-dark-transparent" id="portfolio">
   <div class="container">
-    <div class="row">
-      <div class="col-md-5">
-        <h2 class="section-heading">Selected Projects</h2>
-        <hr class="light">
-        <ul class="selected-projects-list">
-          <li>
-            <a href="{{ '/projects/infospread/' | relative_url }}"><b>Opinion Dynamics &amp; Information Spread Control</b></a>
-            <p>Planning and learning methods for controlling misinformation propagation in social networks.</p>
-          </li>
-          <li>
-            <a href="{{ '/projects/ontology/' | relative_url }}"><b>Planning Ontology &amp; Explainability</b></a>
-            <p>Ontology-driven representations for planning knowledge, explainability, and multi-agent path finding.</p>
-          </li>
-          <li>
-            <a href="{{ '/projects/himapf/' | relative_url }}"><b>HI-MAPF: Resource-Efficient Multi-Robot Coordination</b></a>
-            <p>Hybrid multi-agent path finding with minimized sensing and communication overhead, validated on TurtleBot4 robots.</p>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-7">
-        <h2 class="section-heading">Selected Previous Works</h2>
-        <hr class="light">
-        <main class="carousel-container">
-    <div class="carousel">
-      <div class="item active">
-        <img src="img/portfolio/Cluster.jpg">
-        <p class="caption"><a href="https://link.springer.com/article/10.1007/s10115-021-01578-0">Nested two-stage clustering algorithm for dietary pattern analysis</a></p>
-      </div>
-      <div class="item">
-        <img src="img/portfolio/Reservoir.png">
-        <p class="caption"><a href="https://ieeexplore.ieee.org/abstract/document/9668942">Reservoir networks: Interpretable design</a></p>
-      </div>
-      <div class="item">
-        <img src="img/portfolio/Game.svg">
-        <p class="caption"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0893608020300022">Game-theoretic approaches to learning-based control synthesis</a></p>
-      </div>
-        <div class="item">
-        <img src="img/portfolio/Learning.png">
-        <p class="caption"><a href="https://ieeexplore.ieee.org/abstract/document/8951268">Reinforcement learning for model learning and knowledge sharing</a></p>
-      </div>
-        <div class="item">
-        <img src="img/portfolio/Neuron.png">
-        <p class="caption"><a href="https://link.springer.com/article/10.1007/s10827-019-00723-7">Inferring dynamics of single neuron from in vitro recordings</a></p>
-      </div>
-        <div class="item">
-        <img src="img/portfolio/Projection.png">
-        <p class="caption"><a href="https://www.nature.com/articles/s41598-020-69640-5">Distributed optimization: Parallel residual projection</a></p>
-      </div>
-        <div class="item">
-        <img src="img/portfolio/Systems.svg">
-        <p class="caption"><a href="https://ieeexplore.ieee.org/abstract/document/8027115">Event-driven learning and control for cyber-physical systems</a></p>
-      </div>
-        <div class="item">
-        <img src="img/portfolio/Data.png">
-        <p class="caption"><a href="https://arxiv.org/abs/2009.02646">Data-driven ensemble control systems</a></p>
-      </div>
+    <h2 class="section-heading text-center">Selected Works</h2>
+    <hr class="light">
+
+    <!-- Featured project cards -->
+    <div class="works-grid works-grid-featured">
+      <a class="works-card works-card-featured" href="{{ '/projects/infospread/' | relative_url }}">
+        <div class="works-card-body">
+          <span class="works-card-kicker">Opinion Dynamics</span>
+          <h3>Information Spread Control</h3>
+          <p>Planning and learning methods for controlling misinformation propagation in social networks.</p>
+        </div>
+        <span class="works-card-arrow">&#8594;</span>
+      </a>
+      <a class="works-card works-card-featured" href="{{ '/projects/ontology/' | relative_url }}">
+        <div class="works-card-body">
+          <span class="works-card-kicker">Explainable AI</span>
+          <h3>Planning Ontology &amp; Explainability</h3>
+          <p>Ontology-driven representations for planning knowledge and multi-agent path finding.</p>
+        </div>
+        <span class="works-card-arrow">&#8594;</span>
+      </a>
+      <a class="works-card works-card-featured" href="{{ '/projects/himapf/' | relative_url }}">
+        <div class="works-card-body">
+          <span class="works-card-kicker">Multi-Robot Systems</span>
+          <h3>HI-MAPF Coordination</h3>
+          <p>Resource-efficient multi-agent path finding validated on TurtleBot4 hardware.</p>
+        </div>
+        <span class="works-card-arrow">&#8594;</span>
+      </a>
     </div>
-    <button class="btn prev"><</button>
-    <button class="btn next">></button>
-    <div class="dots"></div>
-        </main>
-      </div>
+
+    <hr class="light works-divider">
+
+    <!-- Previous works grid -->
+    <div class="works-grid works-grid-previous">
+      <a class="works-card works-card-previous" href="https://link.springer.com/article/10.1007/s10115-021-01578-0" target="_blank" rel="noopener">Nested two-stage clustering algorithm for dietary pattern analysis</a>
+      <a class="works-card works-card-previous" href="https://ieeexplore.ieee.org/abstract/document/9668942" target="_blank" rel="noopener">Reservoir networks: Interpretable design</a>
+      <a class="works-card works-card-previous" href="https://www.sciencedirect.com/science/article/abs/pii/S0893608020300022" target="_blank" rel="noopener">Game-theoretic approaches to learning-based control synthesis</a>
+      <a class="works-card works-card-previous" href="https://ieeexplore.ieee.org/abstract/document/8951268" target="_blank" rel="noopener">Reinforcement learning for model learning and knowledge sharing</a>
+      <a class="works-card works-card-previous" href="https://link.springer.com/article/10.1007/s10827-019-00723-7" target="_blank" rel="noopener">Inferring dynamics of single neuron from in vitro recordings</a>
+      <a class="works-card works-card-previous" href="https://www.nature.com/articles/s41598-020-69640-5" target="_blank" rel="noopener">Distributed optimization: Parallel residual projection</a>
+      <a class="works-card works-card-previous" href="https://ieeexplore.ieee.org/abstract/document/8027115" target="_blank" rel="noopener">Event-driven learning and control for cyber-physical systems</a>
+      <a class="works-card works-card-previous" href="https://arxiv.org/abs/2009.02646" target="_blank" rel="noopener">Data-driven ensemble control systems</a>
     </div>
   </div>
 </section>
-
-<script src="{{ '/js/carousel.js' | relative_url }}"></script>
