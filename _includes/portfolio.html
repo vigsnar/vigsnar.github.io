@@ -1,7 +1,28 @@
 <section class="bg-dark-transparent" id="portfolio">
-  <h2 class="section-heading text-center">Selected Previous Works</h2>
-  <hr class="light">
-  <main class="carousel-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h2 class="section-heading">Selected Projects</h2>
+        <hr class="light">
+        <ul class="selected-projects-list">
+          <li>
+            <a href="{{ '/projects/infospread/' | relative_url }}"><b>Opinion Dynamics &amp; Information Spread Control</b></a>
+            <p>Planning and learning methods for controlling misinformation propagation in social networks.</p>
+          </li>
+          <li>
+            <a href="{{ '/projects/ontology/' | relative_url }}"><b>Planning Ontology &amp; Explainability</b></a>
+            <p>Ontology-driven representations for planning knowledge, explainability, and multi-agent path finding.</p>
+          </li>
+          <li>
+            <a href="{{ '/projects/himapf/' | relative_url }}"><b>HI-MAPF: Resource-Efficient Multi-Robot Coordination</b></a>
+            <p>Hybrid multi-agent path finding with minimized sensing and communication overhead, validated on TurtleBot4 robots.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-7">
+        <h2 class="section-heading">Selected Previous Works</h2>
+        <hr class="light">
+        <main class="carousel-container">
     <div class="carousel">
       <div class="item active">
         <img src="img/portfolio/Cluster.jpg">
@@ -39,7 +60,10 @@
     <button class="btn prev"><</button>
     <button class="btn next">></button>
     <div class="dots"></div>
-  </main>
+        </main>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script src="{{ '/js/carousel.js' | relative_url }}"></script>
