@@ -1,5 +1,10 @@
 .project-page {
     color: #f3f7ff;
+    @include serif-font;
+
+    h1, h2, h3, h4, h5, h6 {
+        @include sans-serif-font;
+    }
 
     a {
         color: #9fd0ff;
