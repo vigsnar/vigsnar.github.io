@@ -537,7 +537,10 @@ header {
     a { color: $link-color; }
 }
 // News and Contact sections should match resources page styling
-#news,
+#news {
+    background: transparent;
+    a { color: $link-color; }
+}
 #contact {
     background: transparent;
     color: white;
