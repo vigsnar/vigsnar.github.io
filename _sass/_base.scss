@@ -269,18 +269,18 @@ canvas {
 // Navigation
 
 .navbar-default {
-    background-color: white;
-    border-color: rgba($theme-dark, .5);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-color: rgba(white, .15);
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: $theme-primary;
+        color: white;
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+            color: rgba(white, .7);
         }
     }
     .nav {
@@ -290,15 +290,15 @@ canvas {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-dark;
+                color: rgba(white, .7);
                 &:hover {
-                    color: $theme-primary;
+                    color: white;
                 }
             }
             &.active {
                 > a,
                 > a:focus {
-                    color: $theme-primary !important;
+                    color: white !important;
                     background-color: transparent;
                     &:hover {
                         background-color: transparent;
@@ -309,7 +309,7 @@ canvas {
     }
     @media (min-width: 768px) {
         background-color: transparent;
-        border-color: rgba(white, .3);
+        border-color: rgba(white, .15);
         .navbar-header .navbar-brand {
             color: rgba(white, .7);
             &:hover,
@@ -325,21 +325,21 @@ canvas {
             }
         }
         &.affix {
-            background-color: white;
-            border-color: rgba($theme-dark, .5);
+            background-color: rgba(0, 0, 0, 0.85);
+            border-color: rgba(white, .15);
             .navbar-header .navbar-brand {
-                color: $theme-primary;
+                color: rgba(white, .7);
                 font-size: 14px;
                 &:hover,
                 &:focus {
-                    color: darken($theme-primary, 10%);
+                    color: white;
                 }
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-dark;
+                color: rgba(white, .7);
                 &:hover {
-                    color: $theme-primary;
+                    color: white;
                 }
             }
         }
