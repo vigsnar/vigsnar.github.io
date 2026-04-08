@@ -490,19 +490,33 @@ header {
 
 // Button Styles
 .btn-default {
-    @include button-variant($theme-dark, white, white);
+    color: $theme-primary;
+    background-color: transparent;
+    border: 2px solid $theme-primary;
+    &:hover, &:focus, &:active, &.active {
+        color: white;
+        background-color: $theme-primary;
+        border-color: $theme-primary;
+    }
 }
 
 .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    &:hover, &:focus, &:active, &.active {
+        color: $theme-dark;
+        background-color: white;
+        border-color: white;
+    }
 }
 
 .btn {
     @include sans-serif-font;
-    border: none;
     border-radius: 300px;
     font-weight: 700;
     text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-xl {
