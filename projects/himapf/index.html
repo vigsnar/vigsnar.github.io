@@ -1,0 +1,451 @@
+---
+layout: project-page
+title: HI-MAPF
+description: HI-MAPF is an information-centric MAPF framework that minimizes sensing and communication overhead through conflict-driven coordination and tiered replanning.
+project_slug: himapf
+project_subtitle: A hybrid, information-centric multi-agent path finding framework that minimizes sensing and communication overhead through conflict-driven coordination and tiered replanning.
+project_authors: Bharath Muppasani, Risha Patel, Biplav Srivastava, Vignesh Narayanan
+project_tags:
+  - Multi-Agent Path Finding
+  - Robotics
+  - Decentralized Planning
+  - Information-Centric Coordination
+project_badges:
+  - Under Review
+  - TurtleBot4 Hardware Validation
+  - Four Benchmark Maps
+  - Information Units Metric
+project_links:
+  - label: Full Results
+    url: "/projects/himapf/results.html"
+    kind: internal
+    style: primary
+  - label: Abstract
+    url: "#abstract"
+    kind: anchor
+  - label: I-MAPF
+    url: "#imapf"
+    kind: anchor
+  - label: Framework
+    url: "#framework"
+    kind: anchor
+  - label: Hardware
+    url: "#hardware"
+    kind: anchor
+  - label: Benchmarks
+    url: "#benchmarks"
+    kind: anchor
+  - label: Publications
+    url: "#publications"
+    kind: anchor
+  - label: BibTeX
+    url: "#bibtex"
+    kind: anchor
+project_stats:
+  - value: "2x to 510x"
+    label: Information reduction vs baselines
+  - value: "5"
+    label: TurtleBot4 robots in hardware validation
+  - value: "4"
+    label: Benchmark maps
+  - value: "199 IU"
+    label: Hardware total vs 42,413 for SCRIMP
+mathjax: true
+chartjs: true
+project_scripts:
+  - /js/project-lightbox.js
+  - /js/himapf-strategy.js
+  - /js/himapf-project.js
+---
+
+<section class="project-section" id="abstract">
+  <h2>Abstract</h2>
+  <p>
+    Multi-Agent Path Finding (MAPF) is central to coordinating multiple agents in shared environments.
+    Existing solutions impose significant requirements on communication, sensing, and computation,
+    limiting their applicability in resource-constrained robotic deployments. Centralized search methods
+    require full access to global state information and high-bandwidth channels, while distributed
+    learning-based methods depend on sophisticated onboard perception (e.g., LiDAR, RGB-D cameras) and
+    frequent inter-agent communication.
+  </p>
+  <p>
+    To address these limitations, we formulate <strong>Information-Centric MAPF (I-MAPF)</strong>
+    and introduce <strong>HI-MAPF</strong>, a hybrid framework that augments decentralized planning with
+    a lightweight centralized coordinator. We further introduce a method-agnostic metric,
+    <strong>Information Units (IU)</strong>, to quantify coordination overhead as a proxy for deployment cost.
+    We evaluate HI-MAPF against recent communication-focused algorithms in both simulation
+    (8–128 agents across structured and unstructured environments) and on ground robots in a physical
+    deployment, demonstrating <strong>2× to 510×</strong> reduction in information sharing
+    while maintaining high success rates.
+  </p>
+</section>
+<section class="project-section" id="demo">
+  <h2>Demo Video</h2>
+
+  <div class="project-video-wrap">
+    <video controls preload="auto" playsinline>
+      <source src="{{ '/assets/projects/himapf/media/demo.mp4' | relative_url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="project-video-note">Hardware demo showing conflict-driven coordination with lightweight alert messages.</div>
+  </div>
+</section>
+
+
+
+<section class="project-section" id="imapf">
+  <h2>I-MAPF: Information-Centric Formulation</h2>
+  <p>
+    We characterize MAPF coordination by the information available to each agent \(i\) at time \(t\):
+  </p>
+  
+  <div class="project-equation">
+    $$\mathcal{I}_i(t) = \bigl(\mathcal{M}_i,\;\mathcal{S}_i,\;\mathcal{O}_j,\;\mathcal{E}_{ij}(t)\bigr)$$
+  </div>
+  
+  <ul class="project-list">
+    <li><strong>\(\mathcal{M}_i = (V, E, O)\)</strong> — (possibly partial) environment knowledge: grid cells, edges, and obstacles</li>
+    <li><strong>\(\mathcal{S}_i = (s_i^t, g_i^t, \pi_{i|t_s:t_r})\)</strong> — self-state: current position, goal, and planned trajectory</li>
+    <li><strong>\(\mathcal{O}_j = \{(s_j^t, g_j^t, \pi_{j|t_s:t_r})\}_{j \in \mathcal{N}_i(t)}\)</strong> — other-agent information available through sensing or communication</li>
+    <li><strong>\(\mathcal{E}_{ij}(t)\)</strong> — event-triggered coordination signals: predicted collisions, deadlocks, or constraint/alert messages</li>
+  </ul>
+  
+  <p>
+    Different MAPF paradigms differ in how much of \(\mathcal{I}_i(t)\) each agent accesses:
+    <strong>Centralized</strong> methods use global \(\mathcal{M}\) and all agents' trajectories.
+    <strong>Distributed</strong> methods restrict \(\mathcal{M}_i\) to a local FOV and \(\mathcal{O}_j\) to neighbors.
+    <strong>Hybrid</strong> methods (including HI-MAPF) selectively reveal \(\mathcal{O}_j\) and constraints in response to \(\mathcal{E}_{ij}(t)\).
+  </p>
+
+  <figure class="project-figure" style="margin: 24px 0;">
+    <img src="{{ '/assets/projects/himapf/images/mapf-example.png' | relative_url }}" alt="MAPF coordination paradigms and four-stage pipeline" data-project-lightbox>
+    <figcaption>Left: Example MAPF problem with vertex/edge collisions. Top right: Inter-agent information available under centralized, distributed, and decentralized paradigms. Bottom right: General four-stage MAPF pipeline — path planning, collision detection, resolution, and replanning.</figcaption>
+  </figure>
+
+  <h3>Information Units (IU)</h3>
+  <p>
+    To enable principled comparison of information consumption across MAPF paradigms, we define:
+  </p>
+  
+  <div class="project-callout">
+    <strong>Definition (Information Unit):</strong> An IU is one atomic datum of the form
+    \((v, s, t, e) \in V \times S \times T \times E\), where \(v\) is a grid cell, \(s\) is its state
+    (free, obstacle, occupied, reserved), \(t\) is a timestep, and \(e\) is a scalar message entry.
+    Any sensing output or transmitted message is modeled as a finite multiset of IUs.
+  </div>
+  
+  <p>
+    Lower IU indicates lower bandwidth, energy, and onboard hardware burden, improving
+    feasibility for long-term robotic deployment. A \(d\)-dimensional inter-agent message vector
+    (e.g., SCRIMP's 512-dim messages) contributes \(d\) IUs per transmission.
+  </p>
+</section>
+
+<section class="project-section" id="framework">
+  <h2>HI-MAPF Framework</h2>
+  
+  <div class="project-callout">
+    <strong>Core principle:</strong> Minimize sensing, communication, and computation resources per agent.
+    Planning is decentralized by default; information sharing is conflict-driven and tiered.
+  </div>
+
+  <p>
+    HI-MAPF operates as a four-stage pipeline that iterates until all conflicts are resolved:
+  </p>
+
+  <ul class="project-list">
+    <li><strong>S1 — Decentralized Planning:</strong> Each agent independently computes a path using A* with only map knowledge \(\mathcal{M}_i\) and its own start/goal. No inter-agent communication. <em>0 inter-agent IU.</em></li>
+    <li><strong>S2 — Centralized Conflict Detection:</strong> A coordinator scans all submitted trajectories for vertex and edge conflicts.</li>
+    <li><strong>S3 — Heuristic Control:</strong> For each conflict \(c = (t_j, \Delta_c, A_c)\), the controller selects a replanning agent via Fewest Future Collisions (FFC) heuristic and issues an alert \(\mathcal{A}(c) = (a_{c_k}, t_{j-r}, \Delta_c)\) — only the conflict location and time, a payload of a few bytes.</li>
+    <li><strong>S4 — Tiered Replanning:</strong> The selected agent replans using one of four escalating strategies, each consuming more information but applied only when lower tiers fail.</li>
+  </ul>
+</section>
+
+<section class="project-section">
+  <h2>Repair Modes</h2>
+  <p>
+    The replanning stage itself is tiered. Lower-cost modes are tried first, so the more expensive
+    coupled repairs remain available without becoming the default behavior.
+  </p>
+
+  <div class="project-grid-4">
+    <article class="project-card">
+      <span class="project-card-kicker">S4.1</span>
+      <h3>Yield</h3>
+      <p>The robot waits in a nearby parking cell and resumes after the conflict clears. Cost: 1 IU.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">S4.2</span>
+      <h3>Static Replan</h3>
+      <p>The conflict region is treated as a temporary obstacle during bounded replanning. Cost: \(|\Delta c|\) IUs.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">S4.3</span>
+      <h3>Dynamic Replan</h3>
+      <p>Short trajectory fragments are shared as time-indexed obstacles. Cost: \(r\) IUs.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">S4.4</span>
+      <h3>Joint A*</h3>
+      <p>Tightly coupled agents are replanned together over a local window. Highest cost, rare use.</p>
+    </article>
+  </div>
+</section>
+
+<section class="project-section">
+  <h2>Interactive Strategy Explorer</h2>
+  <p>
+    The interactive view below shows the same escalation policy visually. Each mode reveals only the
+    amount of information needed for that repair tier to succeed.
+  </p>
+
+  <div class="project-strategy-layout">
+    <div class="project-strategy-panel">
+      <p>
+        The four repair modes below show the same story visually: start cheap, reveal only what the
+        repair needs, and escalate only when the lower tier cannot resolve the conflict.
+      </p>
+      <div class="project-chart-controls" role="tablist" aria-label="Repair strategies">
+        <button class="strategy-tab is-active" type="button" data-strategy="yield">Yield</button>
+        <button class="strategy-tab" type="button" data-strategy="static">Static Replan</button>
+        <button class="strategy-tab" type="button" data-strategy="dynamic">Dynamic Replan</button>
+        <button class="strategy-tab" type="button" data-strategy="joint">Joint A*</button>
+      </div>
+      <div id="strategyDetails"></div>
+    </div>
+    <div class="project-strategy-viz">
+      <canvas id="strategyCanvas" width="680" height="520" aria-label="HI-MAPF strategy visualization"></canvas>
+      <div class="project-strategy-caption">
+        <span><span class="project-chart-swatch" style="border-color:#8ec5ff;"></span>Protected agent</span>
+        <span><span class="project-chart-swatch" style="border-color:#ffffff;"></span>Replanning agent</span>
+        <span><span class="project-chart-swatch" style="border-color:#ff7a59;"></span>Conflict region</span>
+        <span><span class="project-chart-swatch" style="border-color:#56d364;"></span>Parking or bay cell</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <h2>Strategy Allocation &amp; Effectiveness</h2>
+  <p>
+    Across all simulated benchmarks (8–128 agents), the vast majority of conflicts are resolved
+    at the cheapest tier:
+  </p>
+  <div class="project-grid-4">
+    <article class="project-card">
+      <span class="project-card-kicker">S4.1 Yield</span>
+      <h3>91–99%</h3>
+      <p>Usage share across all benchmarks. Achieves <strong>91–99%</strong> success rate.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">S4.2 Static Replan</span>
+      <h3>1–8%</h3>
+      <p>Usage share across all benchmarks. Achieves <strong>99–100%</strong> success rate.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">S4.3 Dynamic Replan</span>
+      <h3>&lt;0.5%</h3>
+      <p>Usage share across all benchmarks. Achieves <strong>11%</strong> success rate.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">S4.4 Joint A*</span>
+      <h3>&lt;0.5%</h3>
+      <p>Usage share across all benchmarks. Achieves <strong>72–100%</strong> success rate.</p>
+    </article>
+  </div>
+</section>
+
+<section class="project-section" id="hardware">
+  <h2>Hardware Validation</h2>
+  <p>
+    We validated HI-MAPF on a five-robot TurtleBot4 testbed laid out as a six-by-six grid. The goal
+    was to see how much information each method had to reveal in order to finish the same coordination
+    task.
+  </p>
+
+  <div class="project-grid-4">
+    <article class="project-card">
+      <span class="project-card-kicker">Hardware result</span>
+      <h3>199 IU</h3>
+      <p>HI-MAPF recorded the lowest total information usage in the physical deployment.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">Hardware makespan</span>
+      <h3>12.2</h3>
+      <p>Lowest average makespan among the evaluated hardware baselines.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">Testbed</span>
+      <h3>5 robots</h3>
+      <p>Five TurtleBot4 robots executed the deployment tests in a six-by-six grid.</p>
+    </article>
+    <article class="project-card">
+      <span class="project-card-kicker">Baseline gap</span>
+      <h3>42,413 IU</h3>
+      <p>SCRIMP used 42,413 IU on the same hardware task, making the gap easy to see.</p>
+    </article>
+  </div>
+
+  <div class="project-callout">
+    <strong>Hardware takeaway:</strong> every method succeeded, but HI-MAPF reached the same outcome
+    with dramatically less information exchange.
+  </div>
+
+  <div class="project-table-wrap">
+    <table class="project-table">
+      <thead>
+        <tr>
+          <th>Algorithm</th>
+          <th>Success Rate</th>
+          <th>Avg Makespan</th>
+          <th>Total IU</th>
+          <th>IU Multiplier</th>
+          <th>Exec Time (s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>HI-MAPF</strong></td>
+          <td><strong>100%</strong></td>
+          <td><strong>12.2</strong></td>
+          <td><strong>199</strong></td>
+          <td><strong>1.0x</strong></td>
+          <td>181.5</td>
+        </tr>
+        <tr>
+          <td>MAPF-GPT-2M</td>
+          <td>100%</td>
+          <td>13.6</td>
+          <td>588</td>
+          <td>3.0x</td>
+          <td>176.2</td>
+        </tr>
+        <tr>
+          <td>DCC</td>
+          <td>100%</td>
+          <td>19.4</td>
+          <td>596</td>
+          <td>3.0x</td>
+          <td>235.0</td>
+        </tr>
+        <tr>
+          <td>EPH</td>
+          <td>100%</td>
+          <td>21.8</td>
+          <td>623</td>
+          <td>3.1x</td>
+          <td>234.9</td>
+        </tr>
+        <tr>
+          <td>SCRIMP</td>
+          <td>100%</td>
+          <td>16.4</td>
+          <td>42,413</td>
+          <td>213.0x</td>
+          <td>211.2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="project-section">
+  <h2>Deployment Demo</h2>
+  <p>
+    The physical deployment complements the summary table with direct evidence from the testbed:
+    robot layout, benchmark outcome snapshots, and a short hardware run video.
+  </p>
+  <div class="project-media-grid">
+    <figure class="project-figure">
+      <img src="{{ '/assets/projects/himapf/images/robot-setup.jpg' | relative_url }}" alt="Five TurtleBot4 robots in the testbed" data-project-lightbox>
+      <figcaption>Physical deployment with five TurtleBot4 robots in a six-by-six grid.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="{{ '/assets/projects/himapf/images/hardware-results.png' | relative_url }}" alt="Hardware planning result comparison" data-project-lightbox>
+      <figcaption>HI-MAPF achieves the most balanced profile across makespan, communication, and information usage.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Information Unit Breakdown</h3>
+  <div class="project-grid-2">
+    <article class="project-card">
+      <span class="project-card-kicker">199 IU (1.0×)</span>
+      <h3>HI-MAPF</h3>
+      <p>IU dominated by <strong>initial map broadcast (71%)</strong>, with remaining IU from conflict-triggered constraints during replanning. No onboard perception required.</p>
+    </article>
+    <article class="project-card" style="border-left-color: #e74c3c;">
+      <span class="project-card-kicker" style="color:#e74c3c;">42,413 IU (213×)</span>
+      <h3 style="color:#e74c3c;">SCRIMP</h3>
+      <p>99% of IU from <strong>512-dim inter-agent messages</strong> transmitted via transformer-based communication module at every timestep.</p>
+    </article>
+    <article class="project-card" style="border-left-color: #f39c12;">
+      <span class="project-card-kicker" style="color:#b56e1f;">596–623 IU (3.0–3.1×)</span>
+      <h3 style="color:#b56e1f;">DCC &amp; EPH</h3>
+      <p>IU dominated by <strong>per-timestep position broadcasts</strong> and action transmissions (49–53%), with FOV sensing contributing ~20–22%.</p>
+    </article>
+    <article class="project-card" style="border-left-color: #3498db;">
+      <span class="project-card-kicker" style="color:#1a4a9e;">588 IU (3.0×)</span>
+      <h3 style="color:#1a4a9e;">MAPF-GPT-2M</h3>
+      <p>Competitive makespan (13.6) but requires <strong>11×11 FOV observations</strong> (~41% of IU) compared to 3×3 in SCRIMP.</p>
+    </article>
+  </div>
+</section>
+
+<section class="project-section" id="benchmarks">
+  <h2>Simulation Benchmarks</h2>
+  <p>
+    The simulation suite used four benchmark maps and compared HI-MAPF against learning-based and
+    hybrid baselines across agent counts from 8 to 128. The chart selector summarizes the main
+    trends without forcing the reader through a wall of raw numbers.
+  </p>
+
+  <div class="project-chart-wrap">
+    <div class="project-chart-controls">
+      <button class="project-chart-button is-active" type="button" data-map="random-32-32-20">random-32x32</button>
+      <button class="project-chart-button" type="button" data-map="random-64-64-20">random-64x64</button>
+      <button class="project-chart-button" type="button" data-map="den312d">den312d</button>
+      <button class="project-chart-button" type="button" data-map="warehouse">warehouse</button>
+    </div>
+
+    <div class="project-chart-grid">
+      <div class="project-chart-card"><canvas id="himapf-sr-chart"></canvas></div>
+      <div class="project-chart-card"><canvas id="himapf-ms-chart"></canvas></div>
+      <div class="project-chart-card"><canvas id="himapf-iu-chart"></canvas></div>
+    </div>
+
+    <div class="project-chart-legend">
+      <span class="project-chart-legend-item"><span class="project-chart-swatch" style="border-color:#8ec5ff;"></span>HI-MAPF</span>
+      <span class="project-chart-legend-item"><span class="project-chart-swatch" style="border-color:#5da8ff;"></span>MAPF-GPT-2M</span>
+      <span class="project-chart-legend-item"><span class="project-chart-swatch" style="border-color:#ffb454;"></span>DCC</span>
+      <span class="project-chart-legend-item"><span class="project-chart-swatch" style="border-color:#56d364;"></span>EPH</span>
+      <span class="project-chart-legend-item"><span class="project-chart-swatch" style="border-color:#ff7a59;"></span>SCRIMP</span>
+    </div>
+  </div>
+
+  <div class="project-callout">
+    <strong>Benchmark takeaway:</strong> HI-MAPF keeps success competitive while consistently reducing
+    the amount of information needed for coordination.
+  </div>
+</section>
+
+<section class="project-section" id="publications">
+  <h2>Publications</h2>
+  <ul class="project-publication-list">
+    <li class="project-publication">
+      <span class="project-badge">Under Review</span>
+      <h3>HI-MAPF: Towards Resource-Efficient Multi-Agent Deployment with Minimal Inter-Agent Information Sharing</h3>
+      <p class="project-publication-authors"><strong>Bharath Muppasani</strong>, Risha Patel, Biplav Srivastava, Vignesh Narayanan</p>
+    </li>
+  </ul>
+</section>
+
+<section class="project-section" id="bibtex">
+  <h2>BibTeX</h2>
+  <div class="project-code-block">@inproceedings{muppasani2025himapf,
+  title={HI-MAPF: Towards Resource-Efficient Multi-Agent Deployment},
+  author={Muppasani, Bharath and Patel, Risha and Srivastava, Biplav and Narayanan, Vignesh},
+  year={2025},
+  note={Under Review}
+}</div>
+</section>

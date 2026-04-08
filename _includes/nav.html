@@ -18,6 +18,20 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <!-- Main navigation menu items (right-aligned) -->
             <ul class="nav navbar-nav navbar-right">
+                {% if page.layout == 'project-page' %}
+                <!-- Home link -->
+                <li>
+                    <a class="page-scroll" href="{{ '/' | relative_url }}">Home</a>
+                </li>
+                <!-- Project-specific links -->
+                {% if page.project_links %}
+                {% for link in page.project_links %}
+                <li>
+                    <a class="page-scroll" href="{% if link.kind == 'anchor' %}{{ link.url }}{% elsif link.kind == 'external' %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}" {% if link.kind == 'external' %}target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% else %}
                 <!-- About section link -->
                 <li>
                     <a class="page-scroll" href="{{ '/#about' | relative_url }}">About</a>
@@ -42,6 +56,7 @@
                 <li>
                     <a class="page-scroll" href="{{ '/#contact' | relative_url }}">Contact</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->

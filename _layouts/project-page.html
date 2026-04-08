@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body id="page-top" class="project-page {% if page.project_slug %}project-page-{{ page.project_slug }}{% endif %}">
+    {% include nav.html %}
+
+    <main class="project-shell">
+      <section class="project-hero">
+        <div class="container">
+          <a class="project-back-link" href="{{ '/#projects' | relative_url }}">Back to Projects</a>
+
+          {% if page.project_tags %}
+          <div class="project-tag-list">
+            {% for tag in page.project_tags %}
+            <span class="project-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <h1 class="project-title">{{ page.title }}</h1>
+
+          {% if page.project_subtitle %}
+          <p class="project-subtitle">{{ page.project_subtitle }}</p>
+          {% endif %}
+
+          {% if page.project_authors %}
+          <p class="project-authors">{{ page.project_authors }}</p>
+          {% endif %}
+
+          {% if page.project_badges %}
+          <div class="project-badge-list">
+            {% for badge in page.project_badges %}
+            <span class="project-badge">{{ badge }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if page.project_links %}
+          <div class="project-link-row project-link-row-hero">
+            {% for link in page.project_links %}
+            <a
+              class="project-link-button{% if link.style == 'primary' %} project-link-button-primary{% endif %}"
+              href="{% if link.kind == 'anchor' %}{{ link.url }}{% elsif link.kind == 'external' %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}"
+              {% if link.kind == 'external' %}target="_blank" rel="noopener"{% endif %}
+            >{{ link.label }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if page.project_stats %}
+          <div class="project-stat-grid">
+            {% for stat in page.project_stats %}
+            <div class="project-stat-card">
+              <span class="project-stat-value">{{ stat.value }}</span>
+              <span class="project-stat-label">{{ stat.label }}</span>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <section class="project-body">
+        <div class="container project-content">
+          {{ content }}
+        </div>
+      </section>
+    </main>
+
+    <div class="project-lightbox" id="project-lightbox" hidden>
+      <button class="project-lightbox-close" type="button" aria-label="Close image view">&times;</button>
+      <img class="project-lightbox-image" id="project-lightbox-image" alt="">
+    </div>
+
+    {% if page.mathjax %}
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    {% endif %}
+
+    {% if page.chartjs %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    {% endif %}
+
+    {% if page.project_scripts %}
+      {% for script in page.project_scripts %}
+    <script src="{{ script | relative_url }}"></script>
+      {% endfor %}
+    {% endif %}
+
+    {% include scripts.html %}
+  </body>
+
+</html>
