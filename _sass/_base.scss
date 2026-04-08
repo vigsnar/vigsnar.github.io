@@ -761,6 +761,23 @@ header {
     .caption { font-size: 150%; }
 }
 
+// Resources
+#resources {
+    h3 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+    }
+    li {
+        font-size: 14px;
+    }
+    p.lead {
+        font-size: 14px;
+    }
+}
+
 // Contact
 #contact .fa {
     color: black;  /* Changed to pure black */
