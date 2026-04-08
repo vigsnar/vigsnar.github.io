@@ -725,8 +725,16 @@ header {
 @media (min-width: 769px) {
     .group-lead { display: flex; align-items: flex-start; }
     .group-lead-photo { flex: 0 0 auto; }
-    .group-lead-current { flex: 1; }
-    .group-lead-past { flex: 1; }
+    .group-lead-current {
+        flex: 1;
+        height: 140px;
+        overflow-y: auto;
+    }
+    .group-lead-past {
+        flex: 1;
+        height: 140px;
+        overflow-y: auto;
+    }
     .group-lead-left { flex: 0 0 220px; }
     .group-lead-right { flex: 1; }
     .caption { font-size: 150%; }
