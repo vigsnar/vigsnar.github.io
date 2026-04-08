@@ -6,8 +6,9 @@ body {
 
 body {
     @include serif-font;
-    background-color: black; 
+    background-color: black;
     background-image: none;
+    color: white;
 }
 
 hr {
